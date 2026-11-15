@@ -1,0 +1,45 @@
+* ============================================================================
+* LTspice: one COLUMN of the 6x6 impedance matrix of the PDN (no decaps)
+* 1 A (AC) injected at ONE port, all the other ports open.
+* This copy: injection at port C01.
+*
+* TO MAKE THE OTHER FIVE COLUMNS
+*   duplicate this file five times and change ONLY the node on the line
+*   "Iinj 0 <node> DC 0 AC 1" below, renaming each copy accordingly:
+*       zinj_c01.cir   node c01   (this one)
+*       zinj_c02.cir   node c02
+*       zinj_c03.cir   node c03
+*       zinj_c04.cir   node c04
+*       zinj_c05.cir   node c05
+*       zinj_vdie.cir  node vdie  (die port)
+*   Everything else stays identical, including the sweep.
+*
+* Keep the file in the SW2_STM folder (next to pdn.cir): the .include is relative.
+*
+* OUTPUT
+*   Running the netlist in LTspice writes the file <netlist name>.raw in the same
+*   folder (e.g. zinj_c01.raw). It contains, for each of the 59999 frequencies,
+*   the complex voltages at the 6 ports. Since the injected current is 1 A, those
+*   voltages ARE the impedances of the matrix column:  Z(i, port) = V(node i).
+*   Only these 6 nodes are saved (.save): without it LTspice would store ~900
+*   nodes and the .raw file would be hundreds of MB.
+*
+* FREQUENCY GRID (same for the 6 copies)
+*   f_k = k * df,  k = 1..59999,  df = 1/(166664 * 72 ps) = 83334.668688 Hz
+*   = harmonics of the 12 us die current waveform, up to 5 GHz (limit of the
+*   board data). Linear sweep of 59999 points from df to 59999*df.
+* ============================================================================
+
+.include "../eser1/pdn.cir"
+
+* >>> THE ONLY LINE TO EDIT WHEN DUPLICATING: change c01 into c02, c03, c04, c05, vdie <<<
+Iinj 0 vdie DC 0 AC 1
+
+* node voltages of the 6 ports (the 5 capacitor locations and the die)
+.save V(c01) V(c02) V(c03) V(c04) V(c05) V(vdie)
+
+* store the data in double precision in the .raw file
+.options numdgt=15
+
+.ac lin 59999 83334.66668800035 4999996666.613333
+.end

@@ -1,0 +1,45 @@
+* ============================================================================
+* LTspice: impedance of the six vendor capacitor models on the SAME 59999-point
+* frequency grid used for the PDN matrix columns (zinj_*.cir).
+*
+* Each capacitor has its own 1 A AC test current into port1, with port2 tied to
+* ground (the way the parts are connected in the PDN), so the voltage at each
+* node is the complex impedance of that part:  V(zXXX) = Z_cap(f).
+*   z103 = 10 nF   z682 = 6.8 nF   z472 = 4.7 nF
+*   z332 = 3.3 nF  z222 = 2.2 nF   z152 = 1.5 nF   (XXX = code in the part number)
+*
+* Keep this file in the SW2_STM folder (the .include paths are relative).
+* OUTPUT: LTspice writes caps_zgrid.raw (6 complex traces x 59999 frequencies).
+*
+* FREQUENCY GRID: f_k = k*df, k = 1..59999, df = 1/(166664*72 ps) = 83334.668688 Hz
+* ============================================================================
+.include "../input_files/capacitors/GCM033R71A103KA03.mod"
+.include "../input_files/capacitors/GCM033R71A682KA03.mod"
+.include "../input_files/capacitors/GCM033R71A472KA03.mod"
+.include "../input_files/capacitors/GCM033R71A332KA03.mod"
+.include "../input_files/capacitors/GCM033R71A222KA03.mod"
+.include "../input_files/capacitors/GCM033R71A152KA03.mod"
+
+* 10 nF
+I103 0 z103 DC 0 AC 1
+X103 z103 0 GCM033R71A103KA03
+* 6.8 nF
+I682 0 z682 DC 0 AC 1
+X682 z682 0 GCM033R71A682KA03
+* 4.7 nF
+I472 0 z472 DC 0 AC 1
+X472 z472 0 GCM033R71A472KA03
+* 3.3 nF
+I332 0 z332 DC 0 AC 1
+X332 z332 0 GCM033R71A332KA03
+* 2.2 nF
+I222 0 z222 DC 0 AC 1
+X222 z222 0 GCM033R71A222KA03
+* 1.5 nF
+I152 0 z152 DC 0 AC 1
+X152 z152 0 GCM033R71A152KA03
+
+.save V(z103) V(z682) V(z472) V(z332) V(z222) V(z152)
+.options numdgt=15
+.ac lin 59999 83334.66668800035 4999996666.613333
+.end

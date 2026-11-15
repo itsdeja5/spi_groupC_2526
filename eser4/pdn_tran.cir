@@ -1,0 +1,13 @@
+* ============================================================================
+* Transient analysis of the PDN with the supplied die current load (no decaps)
+* Voltage at the die interface: V(vdie). Run from the SW2_STM root folder.
+* The PWL load lasts 12 us (72 ps steps): simulate one pass of the waveform.
+* ============================================================================
+.include "../eser1/pdn.cir"
+
+* keep only the node of interest (avoids storing ~900 nodes x 166k time points)
+.save V(vdie)
+
+.tran 72p 12u 0 72p
+.meas tran vpp PP V(vdie)
+.end

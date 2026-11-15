@@ -1,0 +1,31 @@
+BEST DECOUPLING-CAPACITOR CONFIGURATION (minimum peak-to-peak ripple at the die)
+================================================================================
+Method:  Z_die(f) = Z_dd - Z_dc * inv(Z_cc + Z_cap) * Z_cd
+         V_die(f) = - Z_die(f) * I_load(f)   ->  inverse FFT  ->  Vpp = max - min
+
+Peak-to-peak ripple without decaps : 0.2822 V
+Peak-to-peak ripple, best          : 0.0576 V
+
+Best configuration. Paste these lines into pdn_best.cir:
+Xc01 c01 0 GCM033R71A332KA03      * 3.3nF
+Xc02 c02 0 GCM033R71A222KA03      * 2.2nF
+Xc03 c03 0 GCM033R71A152KA03      * 1.5nF
+Xc04 c04 0 GCM033R71A152KA03      * 1.5nF
+Xc05 c05 0 GCM033R71A222KA03      * 2.2nF
+
+Next 10 configurations (Vpp [V] | C01  C02  C03  C04  C05):
+  0.0577 | 1.5nF  3.3nF  1.5nF  1.5nF  2.2nF
+  0.0577 | 1.5nF  2.2nF  3.3nF  1.5nF  2.2nF
+  0.0578 | 1.5nF  1.5nF  3.3nF  1.5nF  2.2nF
+  0.0579 | 1.5nF  1.5nF  1.5nF  3.3nF  2.2nF
+  0.0580 | 2.2nF  1.5nF  3.3nF  1.5nF  2.2nF
+  0.0580 | 3.3nF  1.5nF  3.3nF  1.5nF  1.5nF
+  0.0580 | 1.5nF  1.5nF  3.3nF  2.2nF  2.2nF
+  0.0582 | 3.3nF  1.5nF  1.5nF  2.2nF  2.2nF
+  0.0582 | 1.5nF  2.2nF  3.3nF  1.5nF  1.5nF
+  0.0584 | 3.3nF  2.2nF  2.2nF  1.5nF  2.2nF
+
+Notes:
+  - Vpp is computed on the periodic steady-state waveform of the 12 us die current.
+  - Confirm the chosen configuration with a transient in LTspice (pdn_best.cir) and measure
+    the ripple from 0.5 us on, to skip the start-up transient.

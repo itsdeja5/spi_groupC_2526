@@ -1,0 +1,68 @@
+* ============================================================================
+* Complete PDN netlist: VRM -> board -> package -> die
+* NO DECAPS CONNECTED
+* ============================================================================
+
+* ---------------------------------------------------------------------------
+* Models
+* ---------------------------------------------------------------------------
+* Board macromodel:   ports (a_1,b_1)=VRM, (a_2,b_2)=package
+.include "../input_files/board_passive.cir"
+
+* Package macromodel: ports 1..5 = VDD_C01_1..VDD_C05_1, 6 = board, 7 = die
+.include "../input_files/package_ports_on_caps_passive.cir"
+
+* Die model: subckt die_model (vdd vss), PWL current load + RC power grid
+.include "../input_files/die_model/die_model.sp"
+
+* Vendor decoupling capacitor models (subckt <part> port1 port2)
+.include "../input_files/capacitors/GCM033R71A103KA03.mod"
+.include "../input_files/capacitors/GCM033R71A682KA03.mod"
+.include "../input_files/capacitors/GCM033R71A472KA03.mod"
+.include "../input_files/capacitors/GCM033R71A332KA03.mod"
+.include "../input_files/capacitors/GCM033R71A222KA03.mod"
+.include "../input_files/capacitors/GCM033R71A152KA03.mod"
+
+* ---------------------------------------------------------------------------
+* Supply: ideal VRM, 1 V DC
+* ---------------------------------------------------------------------------
+VVRM vrm 0 DC 1
+
+* ---------------------------------------------------------------------------
+* Board: port 1 (VRM) on the source, port 2 (package) towards the package
+* pin order: a_1 b_1 a_2 b_2
+* ---------------------------------------------------------------------------
+Xboard vrm 0 pkg_board 0 board_passive
+
+* ---------------------------------------------------------------------------
+* Package
+* pin order: a_1 b_1 ... a_7 b_7
+*   1..5 = capacitor locations C01..C05
+*   6    = board side (connected to board port 2)
+*   7    = die side   (vdie)
+* ---------------------------------------------------------------------------
+Xpkg c01 0 c02 0 c03 0 c04 0 c05 0 pkg_board 0 vdie 0 package_ports_on_caps_passive
+
+* ---------------------------------------------------------------------------
+* Die: VDD on node vdie, VSS on ground
+* ---------------------------------------------------------------------------
+Xdie vdie 0 die_model
+
+* ---------------------------------------------------------------------------
+* Decoupling capacitors (one per package location, other terminal to ground)
+* Baseline = NO decaps (cap ports left open). To mount a capacitor, remove
+* the leading '*' and pick the part among:
+*   GCM033R71A103KA03 (10 nF)   GCM033R71A682KA03 (6.8 nF)
+*   GCM033R71A472KA03 (4.7 nF)  GCM033R71A332KA03 (3.3 nF)
+*   GCM033R71A222KA03 (2.2 nF)  GCM033R71A152KA03 (1.5 nF)
+* ---------------------------------------------------------------------------
+*Xc01 c01 0 GCM033R71A103KA03
+*Xc02 c02 0 GCM033R71A103KA03
+*Xc03 c03 0 GCM033R71A103KA03
+*Xc04 c04 0 GCM033R71A103KA03
+*Xc05 c05 0 GCM033R71A103KA03
+
+* ---------------------------------------------------------------------------
+* Analyses: to be added in the next steps (.ac for impedance, .tran for ripple)
+* ---------------------------------------------------------------------------
+.op

@@ -1,0 +1,18 @@
+* ============================================================================
+* Transient analysis of the PDN WITH decoupling capacitors (best configuration
+* found by the exhaustive frequency-domain search). Run from the SW2_STM folder.
+*   C01 = 3.3 nF, C02 = 2.2 nF, C03 = 1.5 nF, C04 = 1.5 nF, C05 = 2.2 nF
+* ============================================================================
+.include "pdn.cir"
+
+Xc01 c01 0 GCM033R71A152KA03      * 3.3nF
+Xc02 c02 0 GCM033R71A332KA03      * 2.2nF
+Xc03 c03 0 GCM033R71A152KA03      * 1.5nF
+Xc04 c04 0 GCM033R71A152KA03      * 1.5nF
+Xc05 c05 0 GCM033R71A222KA03      * 2.2nF
+
+.save V(vdie)
+
+.tran 72p 12u 0 72p
+.meas tran vpp PP V(vdie)
+.end
