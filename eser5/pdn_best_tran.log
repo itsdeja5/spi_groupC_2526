@@ -599,24 +599,24 @@ die:isource: Removing PWL point (1.19444e-005,0.102)
 die:isource: Removing PWL point (1.1982e-005,0.232)
 Direct Newton iteration for .op point succeeded.
 
-vpp: PP(v(vdie))=0.0606699 FROM 0 TO 1.2e-005
+vpp: PP(v(vdie))=0.0594735 FROM 0 TO 1.2e-005
 
 
-Date: Sun Nov 15 18:59:34 2026
-Total elapsed time: 198.915 seconds.
+Date: Sun Nov 15 19:14:09 2026
+Total elapsed time: 171.883 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 1479749
-traniter = 1479746
-tranpoints = 739819
-accept = 735980
-rejected = 3839
-matrix size = 369
-fillins = 66
+totiter = 1474431
+traniter = 1474428
+tranpoints = 737215
+accept = 734492
+rejected = 2723
+matrix size = 368
+fillins = 65
 solver = Normal
-Thread vector: 43.3/19.7[16] 15.2/6.9[16] 0.2/1.9[1] 3.1/5.1[1]  2592/500
-Matrix Compiler1: 42.33 KB object code size  11.4/4.2/[3.8]
-Matrix Compiler2: 49.25 KB object code size  5.0/5.0/[2.9]
+Thread vector: 44.9/19.8[16] 14.8/4.3[16] 0.2/2.4[1] 1.5/4.5[1]  2592/500
+Matrix Compiler1: 42.29 KB object code size  8.9/4.7/[1.9]
+Matrix Compiler2: 49.15 KB object code size  5.8/5.3/[4.8]
 
