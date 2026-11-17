@@ -1,0 +1,214 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This file defines the style for your homebook
+% You don't need to edit it any more, if not to 
+% change the authors name:
+%
+% Search below for the keyword:   GROUP
+% insert your group number
+%
+% Search below for the keyword:   AUTHORS
+% insert the name of the authors
+%
+%%%%%%
+% Now to update the dexcription  of your work you will 
+% use the file ``master.tex'' in the current directory
+% following the instructions in it 
+%
+%%%%%% 
+%%%%%%  
+%%%%%%
+% If you want to compile your document you have TWO ways
+% depending on the fact that 
+% 	1) you have inserted only postcript images in your tex file 
+%		---> then go to MODE 1
+%	2) you have inserted other kind of images (jpg..) in your tec file
+%		---> then go to MODE 2
+%
+% MODE 1 
+%simple type:
+% 	latex homebook.tex
+%
+% If the compilation runs succesfully you can create a pdf type:
+% 	dvipdfm homebook.dvi
+%
+% MODE 2
+% simple type:
+%	pdflatex homebook.tex
+%
+% If the compilation runs succesfully you directly have the pdf file
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{book}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[italian]{babel}
+\usepackage{fancyhdr}
+\usepackage{makeidx}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\usepackage{fvextra}
+% \usepackage{fancyvrb}
+% \usepackage{minted}
+\definecolor{swcolor}{RGB}{0,180,0}   % softwar = green
+\definecolor{hwcolor}{RGB}{30,60,180}   % hardware = blue
+\definecolor{hwcolor2}{RGB}{180,30,30}   % hardware2 = red
+\definecolor{extreq}{RGB}{250,207,10}   % yellow
+\definecolor{rsp}{RGB}{217,89,0}   % orange
+\definecolor{comment}{RGB}{128,128,128}
+
+\newcommand{\SW}[1]{\textcolor{swcolor}{#1}}
+\newcommand{\HW}[1]{\textcolor{hwcolor}{#1}}
+\newcommand{\HWr}[1]{\textcolor{hwcolor2}{#1}}
+\newcommand{\EXT}[1]{\textcolor{extreq}{#1}}
+\newcommand{\RSP}[1]{\textcolor{rsp}{#1}}
+\newcommand{\COM}[1]{\textcolor{comment}{#1}}
+
+%%\usepackage{multicolumn}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{colortbl} 
+\usepackage{changepage}
+
+
+\newenvironment{listato}{\footnotesize}
+                        {\normalsize }
+
+
+%\pagestyle{empty}
+
+%\textwidth 15.5cm
+%\textheight 23cm
+%\topmargin -1cm
+%\oddsidemargin -0.5cm
+%\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{}
+\chead{Laboratori di Optoelettronica --- Anno Accademico 2025-2026}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\rhead{\thepage}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\oddsidemargin -1.1cm
+
+\titleformat{\chapter}[display]
+{\normalfont\Large\filcenter\sffamily}
+{\titlerule[0.5pt]%
+\vspace{1pt}
+\titlerule
+\vspace{1pc}
+\LARGE\MakeUppercase{\chaptertitlename} \thechapter
+}
+{1pc}
+{\titlerule
+\vspace{1pc}
+\Huge}
+
+%%\newcommand{\SubSubSection}[1]{\subsubsection{\bf Exercise   ~#1}}
+
+%%\newcommand{\homework}[1]{\subsubsection{\bf Homework   ~#1}}
+
+%%\newcommand{\Solution}{\subsubsection{\bf Solution}}
+
+
+
+
+% \makeindex
+\begin{document}
+
+\input{fronte}
+\pagenumbering{roman}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+\mainmatter
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{green!50!black},
+  stringstyle=\color{red!60!black},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{gray},
+  columns=fullflexible,
+  showstringspaces=false
+}
+
+
+
+\lstset{language=VHDL}
+\lstset{language=Verilog}
+%\lstset{language=SystemVerilog}
+% \lstnewenvironment{SysVerilogFile}[1]
+%   {\lstset{language=SystemVerilog}\lstinputlisting{#1}}
+%   {}
+
+% % --- Verilog definition ---
+% \lstdefinelanguage{Verilog}{
+%   keywords={always,and,assign,automatic,begin,buf,bufif0,bufif1,case,casex,casez,
+%     cell,cmos,config,deassign,default,defparam,design,disable,edge,else,end,
+%     endcase,endconfig,endfunction,endgenerate,endmodule,endprimitive,endspecify,
+%     endtable,endtask,event,for,force,forever,fork,function,generate,genvar,
+%     highz0,highz1,if,ifdef,ifndef,include,initial,inout,input,instance,integer,
+%     join,large,liblist,library,localparam,macromodule,medium,modport,module,
+%     nand,negedge,nmos,nor,not,notequal,or,output,parameter,pmos,posedge,primitive,
+%     pull0,pull1,rcmos,real,reg,release,repeat,rnmos,rpmos,scalared,small,
+%     specify,specparam,strong0,strong1,supply0,supply1,table,task,time,tran,
+%     tranif0,tranif1,tri,tri0,tri1,triand,trior,trireg,vector,wait,wand,weak0,
+%     weak1,while,wire,wor,xnor,xor},
+%   sensitive=true,
+%   morecomment=[l]{//},
+%   morecomment=[s]{/*}{*/},
+%   morestring=[b]"
+% }
+
+% --- SystemVerilog definition ---
+\lstdefinelanguage{SystemVerilog}{
+  keywords=[1]{
+  always,and,assign,automatic,begin,buf,bufif0,bufif1,case,casex,casez,
+    cell,cmos,config,deassign,default,defparam,design,disable,edge,else,end,
+    endcase,endconfig,endfunction,endgenerate,endmodule,endprimitive,endspecify,
+    endtable,endtask,event,for,force,forever,fork,function,generate,genvar,
+    highz0,highz1,if,ifdef,ifndef,include,initial,inout,input,instance,integer,
+    join,large,liblist,library,localparam,macromodule,medium,modport,module,
+    nand,negedge,nmos,nor,not,notequal,or,output,parameter,pmos,posedge,primitive,
+    pull0,pull1,rcmos,real,reg,release,repeat,rnmos,rpmos,scalared,small, signed,
+    specify,specparam,strong0,strong1,supply0,supply1,table,task,time,tran,
+    tranif0,tranif1,tri,tri0,tri1,triand,trior,trireg,vector,wait,wand,weak0,
+    weak1,while,wire,wor,xnor,xor,  
+    alias,always_comb,always_ff,always_latch,assert,assume,bind,
+    break,byte,case,casex,casez,class,clocking,cover,covergroup,coverpoint,
+    constraint,disable,else,end,endcase,enum,extern,final,for,foreach,function,
+    if,iff,import,inside,int,interface,local,logic,modport,module,new,property,
+    protected,public,rand,randc,ref,return,semaphore,static,struct,super,
+    task,this,typedef,union,unique,var,virtual,wait,while},
+    sensitive=true,   
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]"
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    
+%% HERE IS THE MAIN INCLUSION
+%%
+\input{./master}
+%%
+%% NOW READ THE FILE master.tex  
+\end{document}
+
