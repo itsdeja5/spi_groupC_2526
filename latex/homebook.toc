@@ -1,65 +1,7 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {chapter}{\numberline {1}Laboratorio 1}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Modi guidati di una guida d'onda slab SOI}{1}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Calcolo di $\boldsymbol {n_{eff}}$ in funzione di $\boldsymbol {d}$}{1}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Plot dei campi elettromagnetici}{2}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}Calcolo del Fattore di Confinamento Ottico (OCF) $\boldsymbol {\Gamma _{TE_0}}$}{4}{subsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.1.4}Calcolo del Modal Loss $\boldsymbol {\alpha _{modal}}$}{5}{subsection.1.1.4}%
-\contentsline {subsection}{\numberline {1.1.5}Calcolo dell'Insertion Loss $\boldsymbol {IL_{dB}}$}{6}{subsection.1.1.5}%
-\contentsline {subsection}{\numberline {1.1.6}Scelta dello spessore $\boldsymbol {d_{SM}}$ per avere solo il modo $\boldsymbol {TE_0}$}{6}{subsection.1.1.6}%
-\contentsline {subsection}{\numberline {1.1.7}Calcolo di $\boldsymbol {n_{eff}(\omega )}$ e $\boldsymbol {n_{eff}(\lambda )}$}{6}{subsection.1.1.7}%
-\contentsline {subsection}{\numberline {1.1.8}Calcolo e plot di $\boldsymbol {n_{g}(\omega )}$}{8}{subsection.1.1.8}%
-\contentsline {section}{\numberline {1.2}Propagazione di impulsi ottici in fibra ottica dispersiva}{10}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Definizione dell'impulso}{10}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Plot degli impulsi e misura del FWHM}{10}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Calcolo e plot dello spettro ottico}{11}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}Calcolo e plot della costante di propagazione $\boldsymbol {\beta (\omega )}$}{11}{subsection.1.2.4}%
-\contentsline {subsection}{\numberline {1.2.5}Calcolo e plot degli impulsi in uscita dalla fibra}{12}{subsection.1.2.5}%
-\contentsline {subsection}{\numberline {1.2.6}Calcolo e plot di FWHM in uscita}{14}{subsection.1.2.6}%
-\contentsline {subsection}{\numberline {1.2.7}Risoluzione temporale e gestione della finestra temporale}{14}{subsection.1.2.7}%
-\contentsline {section}{\numberline {1.3}Biosensore ottico basato su microring in Silicio}{16}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Spettro di trasmissione alle porte Through e Drop}{16}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Introduzione dell'analita e calcolo di Q}{18}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}Calcolo della Sensitivity $\boldsymbol {S}$ e del Detection Limit $\boldsymbol {DL}$}{18}{subsection.1.3.3}%
-\contentsline {chapter}{\numberline {2}Laboratorio 2}{21}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Prestazioni del LED in regime CW}{22}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Plot di $\boldsymbol {P_{out,opt}}$ e di $\boldsymbol {N}$ in funzione di $\boldsymbol {I}$}{22}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Calcolo dell'efficienza radiativa $\boldsymbol {\eta _{rad}}$}{22}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Variazione dei parametri $A$, $B$ e $C$}{23}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}Transitorio di accensione}{24}{subsection.2.1.4}%
-\contentsline {section}{\numberline {2.2}Analisi di piccolo segnale del LED}{27}{section.2.2}%
-\contentsline {subsubsection}{Relazione tra Banda di Modulazione ed Efficienza Radiativa:}{29}{subsubsection*.44}%
-\contentsline {section}{\numberline {2.3}PRBS: modulazione ad ampio segnale del LED}{30}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Laboratorio 3}{35}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Caratteristica statica di un diodo laser a singolo modo}{35}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Confronto con i valori del modello teorico}{36}{subsection.3.1.1}%
-\contentsline {subsubsection}{Calcolo dei portatori alla soglia $N_{th}$}{36}{subsubsection*.55}%
-\contentsline {subsubsection}{Calcolo della corrente di soglia $I_{th}$}{37}{subsubsection*.56}%
-\contentsline {subsubsection}{Calcolo dell'efficienza quantica esterna differenziale $\eta _d$}{37}{subsubsection*.57}%
-\contentsline {subsection}{\numberline {3.1.2}Calcolo della larghezza di riga ottica del laser $\Delta \nu _{FW}$:}{38}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Effetto della variazione di $\boldsymbol {\alpha _H}$ sulla larghezza di riga}{39}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Risposte IM e FM del diodo laser}{41}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Risposta temporale della dinamica a piccolo segnale}{41}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Risposta in frequenza - Plot IM e FM}{43}{subsection.3.2.2}%
-\contentsline {paragraph}{Caso ideale ($\epsilon = 0$):}{45}{paragraph*.73}%
-\contentsline {paragraph}{Caso reale ($\epsilon \neq 0$):}{45}{paragraph*.74}%
-\contentsline {section}{\numberline {3.3}Modulazione diretta NRZ con PRBS}{48}{section.3.3}%
-\contentsline {subsubsection}{Confronto tra segnale di corrente e segnale di potenza}{48}{subsubsection*.79}%
-\contentsline {subsection}{\numberline {3.3.1}Simulazione PRBS sopra-soglia}{49}{subsection.3.3.1}%
-\contentsline {subsubsection}{Differenze rispetto alla simulazione precedente e conclusioni}{49}{subsubsection*.81}%
-\contentsline {section}{\numberline {3.4}Modulazione a vari bit-rate e calcolo dell'ER}{50}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Laboratorio 4}{55}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Determinazione di $\boldsymbol {\Delta n_{eff}(V)}$ e della perdita ottica in funzione della tensione di polarizzazione inversa}{55}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Calcolo dello spettro di trasmissione del modulatore}{56}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Spettro di trasmissione in funzione della tensione di bias}{57}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Calcolo dell'Extinction Ratio ER}{57}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}Larghezza di banda del modulatore}{59}{section.4.4}%
-\contentsline {subsubsection}{Calcolo dell'energia per bit}{60}{subsubsection*.98}%
-\contentsline {chapter}{\numberline {5}Laboratorio Sperimentale}{61}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Esperienza in laboratorio con strumentazione ottica}{61}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Plot delle misure effettuate con il multimetro ottico}{65}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Analisi dei dati acquisiti automaticamente}{67}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Misurazione con controllo di temperatura disabilitato}{67}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Misurazione con controllo di temperatura attivo}{67}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Plot degli spettri ottici}{69}{subsection.5.3.3}%
+\contentsline {chapter}{\numberline {1}Exercise 1}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Exercise 2}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Exercise 3}{5}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Exercise 4}{7}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Exercise 5}{9}{chapter.5}%
