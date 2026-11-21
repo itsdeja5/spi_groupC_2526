@@ -1,8 +1,8 @@
-\chapter{Exercise 1: Assembly of the PDN netlist}
+\section{Exercise 1: Assembly of the PDN netlist}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Analysis of the provided models}
+\subsection{Analysis of the provided models}
 
 The PDN under analysis is described by three modules: the board, the package and the die. Before connecting them, the structure of each module has
 been analysed, with particular attention to its ports, since these determine how the modules can be interconnected.
@@ -25,13 +25,26 @@ been analysed, with particular attention to its ports, since these determine how
     so that it lasts 12~$\mu$s, and its value ranges from about 21~mA to 287~mA.
 \end{itemize}
 
-\noindent About \textbf{Port references}: the board and the package macromodels were generated with \textit{separate (floating)} port references:
+\noindent All required modules have been included as follows:
+\begin{lstlisting}[language={ltspice}, caption={Declaration of the modules in the netlist \texttt{pdn.cir}.}, label={lst:pdn_include}]
+* Board macromodel:   ports (a_1,b_1)=VRM, (a_2,b_2)=package
+.include "../input_files/board_passive.cir"
+
+* Package macromodel: ports 1..5 = VDD_C01_1..VDD_C05_1, 6 = board, 7 = die
+.include "../input_files/package_ports_on_caps_passive.cir"
+
+* Die model: subckt die_model (vdd vss), PWL current load + RC power grid
+.include "../input_files/die_model/die_model.sp"
+\end{lstlisting}
+
+\noindent\\ About \textbf{Port references}: the board and the package macromodels were generated with \textit{separate (floating)} port references:
 each port $i$ is described by two terminals, the node $a_i$ associated to the port and the reference node $b_i$. For the models to be used in a
 circuit simulation, the reference node of every port must be connected to the global ground.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Assembly of the complete netlist}
+\newpage
+\subsection{Assembly of the complete netlist}
 
 Then a new netlist has been created, \texttt{pdn.cir}, in which the files described above are included and properly connected, following the chain
 VRM $\rightarrow$ board $\rightarrow$ package $\rightarrow$ die shown in \autoref{fig:pdn}.\\ The connections are the following:
@@ -42,18 +55,19 @@ VRM $\rightarrow$ board $\rightarrow$ package $\rightarrow$ die shown in \autore
   \item the five ports of the package placed on the capacitor locations are brought out on the nodes \texttt{c01}, \dots, \texttt{c05} and left open, which corresponds to the PDN without decoupling capacitors; the capacitors will be connected between these nodes and ground in the following exercises;
   \item the reference node of all the ports is connected to the global ground (node~0).
 \end{itemize}
-The part of the netlist that instantiates and connects the modules is shown in Listing~\ref{lst:pdn}.
 
 \begin{figure}[h]
-\centering
-% Replace the placeholder below with the scheme exported from draw.io:
-% \includegraphics[width=0.95\textwidth]{./eser1/pdn_scheme.pdf}
-\fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm} Figure placeholder: scheme of the complete PDN\vspace{3cm}}}
-\caption{Scheme of the complete PDN: ideal 1~V VRM, board, package and die. The five ports of the package on the capacitor locations (C01--C05) are left open in the PDN without decoupling capacitors.}
-\label{fig:pdn}
+    \centering
+    % Replace the placeholder below with the scheme exported from draw.io:
+    % \includegraphics[width=0.95\textwidth]{./eser1/pdn_scheme.pdf}
+    \fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm} Figure placeholder: scheme of the complete PDN\vspace{3cm}}}
+    \caption{Scheme of the complete PDN: ideal 1~V VRM, board, package and die. The five ports of the package on the capacitor locations (C01--C05) are left open in the PDN without decoupling capacitors.}
+    \label{fig:pdn}
 \end{figure}
 
-\begin{lstlisting}[language={}, caption={Connection of the modules in the netlist \texttt{pdn.cir}.}, label={lst:pdn}]
+\noindent The part of the netlist that instantiates and connects the modules is shown in Listing~\ref{lst:pdn_inst}.
+
+\begin{lstlisting}[language={ltspice}, caption={Instances and connection of the modules in the netlist \texttt{pdn.cir}.}, label={lst:pdn_inst}]
 * ---- Supply: ideal VRM, 1 V DC ----
 VVRM vrm 0 DC 1
 

@@ -39,7 +39,7 @@
 % If the compilation runs succesfully you directly have the pdf file
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass{book}
+\documentclass{article}
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 \usepackage[english]{babel}
 \usepackage{fancyhdr}
@@ -102,18 +102,18 @@
 \usepackage{amssymb}
 %\oddsidemargin -1.1cm
 
-\titleformat{\chapter}[display]
-{\normalfont\Large\filcenter\sffamily}
-{\titlerule[0.5pt]%
-\vspace{1pt}
-\titlerule
-\vspace{1pc}
-\LARGE\MakeUppercase{\chaptertitlename} \thechapter
-}
-{1pc}
-{\titlerule
-\vspace{1pc}
-\Huge}
+%\titleformat{\chapter}[display]
+%{\normalfont\Large\filcenter\sffamily}
+%{\titlerule[0.5pt]%
+%\vspace{1pt}
+%\titlerule
+%\vspace{1pc}
+%\LARGE\MakeUppercase{\chaptertitlename} \thechapter
+%}
+%{1pc}
+%{\titlerule
+%\vspace{1pc}
+%\Huge}
 
 %%\newcommand{\SubSubSection}[1]{\subsubsection{\bf Exercise   ~#1}}
 
@@ -133,7 +133,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
-\mainmatter
+%\mainmatter
+\clearpage
+\pagenumbering{arabic}
 
 \lstset{
   basicstyle=\ttfamily\footnotesize,
@@ -174,6 +176,14 @@
 %   morecomment=[s]{/*}{*/},
 %   morestring=[b]"
 % }
+
+\lstdefinelanguage{ltspice}{
+  % rows starting with * (column 0): green
+  morecomment=[f][\color{green!50!black}][0]{*},
+  % rows starting with . (column 0): blue
+  morecomment=[f][\color{blue}][0]{.},
+  sensitive=false
+}
 
 
 

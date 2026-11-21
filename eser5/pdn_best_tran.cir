@@ -15,4 +15,5 @@ Xc05 c05 0 GCM033R71A222KA03      * 2.2nF
 
 .tran 72p 12u 0 72p
 .meas tran vpp PP V(vdie)
+.meas tran vpp_ss PP V(vdie) FROM=0.5u TO=12u
 .end

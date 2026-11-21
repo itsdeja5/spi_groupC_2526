@@ -1,8 +1,10 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Exercise 1: Assembly of the PDN netlist}{3}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Analysis of the provided models}{3}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Assembly of the complete netlist}{3}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Exercise 2}{5}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Exercise 3}{7}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Exercise 4}{9}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Exercise 5}{11}{chapter.5}%
+\contentsline {section}{\numberline {1}Exercise 1: Assembly of the PDN netlist}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Analysis of the provided models}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Assembly of the complete netlist}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Exercise 2: PDN impedance in the frequency domain}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}AC analysis of the PDN}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Choice of the frequency range}{4}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Exercise 3}{6}{section.3}%
+\contentsline {section}{\numberline {4}Exercise 4}{7}{section.4}%
+\contentsline {section}{\numberline {5}Exercise 5}{8}{section.5}%
