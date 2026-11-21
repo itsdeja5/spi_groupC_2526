@@ -1,7 +1,8 @@
-\babel@toc {italian}{}\relax 
-\babel@toc {italian}{}\relax 
-\contentsline {chapter}{\numberline {1}Exercise 1}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Exercise 2}{3}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Exercise 3}{5}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Exercise 4}{7}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Exercise 5}{9}{chapter.5}%
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Exercise 1: Assembly of the PDN netlist}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Analysis of the provided models}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Assembly of the complete netlist}{3}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Exercise 2}{5}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Exercise 3}{7}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Exercise 4}{9}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Exercise 5}{11}{chapter.5}%
