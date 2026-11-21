@@ -1,0 +1,35 @@
+\section*{Introduction}
+
+The aim of this lab is to analyse the power distribution network (\textbf{PDN}) of a real test case provided by STMicroelectronics, composed of
+a board, a four-layer package and a die, and to use this analysis to design its decoupling. The switching activity of the die draws a noisy
+current from the supply, and the impedance of the PDN converts this current into a voltage ripple at the die terminals.
+
+\noindent\\ When a peak of the PDN impedance coincides with a strong component of the current spectrum, as happens here around $100\,\text{MHz}$, the
+ripple becomes large and the correct operation of the device is at risk. Decoupling capacitors mounted on the package mitigate this resonance and
+shift it to less critical frequencies.
+
+\noindent\\ The lab is divided into the following activities:
+\begin{enumerate}
+  \item \textbf{assembling the complete PDN SPICE netlist} from the provided board, package and die models, with all the port references connected
+  to the global ground;
+  \item \textbf{computing, in frequency domain, the PDN impedance} seen from the die interface and identifying its resonances;
+  \item \textbf{validating the SPICE models of the decoupling capacitors} provided by the vendor against the vendor frequency-domain data;
+  \item \textbf{performing a transient analysis of the PDN} with the supplied current load and evaluating the voltage ripple without decoupling capacitors;
+  \item \textbf{connecting the decoupling capacitors and finding the configuration that minimises the voltage ripple}.
+\end{enumerate}
+
+\noindent\\ The final goal is the last one. The package offers five locations (\textit{C01--C05}) for the capacitors, and each of them can be populated
+with one of six available values, from $1.5\,\text{nF}$ to $10\,\text{nF}$, so that the possible configurations are $6^5 = 7776$. Simulating all of
+them in the time domain is not practical, since a single transient simulation of the whole PDN over the supplied current waveform takes several minutes,
+and the complete search would require days of computation. For this reason we exploited the linearity of the PDN. The network without capacitors is
+characterised once, through six AC analyses, by its impedance matrix evaluated at the frequencies of the spectral lines of the current. The capacitors
+are then added analytically, for each configuration, and the voltage ripple is reconstructed from the current spectrum. In this way seven AC
+simulations replace the 7776 transient simulations, and the best configurations found are finally confirmed with a transient simulation.
+
+\noindent\\ To implement this approach we used an AI assistant (Claude, developed by Anthropic) as a means of support. It helped us to create the
+MATLAB and Python scripts used to post-process the simulation data, to validate the capacitor models and to find automatically the optimal
+configuration, the latter being based on the circuit-theory equations that are the core of the method (the impedance matrix of the multiport PDN
+terminated by the capacitors). The circuit simulations were run by us in LTspice, and the results provided by the scripts were cross-checked against
+these simulations.
+
+\noindent\\ The report is organised in five chapters, one for each of the activities listed above.
