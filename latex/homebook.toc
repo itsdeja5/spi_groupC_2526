@@ -6,5 +6,5 @@
 \contentsline {subsection}{\numberline {2.1}AC analysis of the PDN}{4}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Choice of the frequency range}{4}{subsection.2.2}%
 \contentsline {section}{\numberline {3}Exercise 3}{6}{section.3}%
-\contentsline {section}{\numberline {4}Exercise 4}{7}{section.4}%
-\contentsline {section}{\numberline {5}Exercise 5}{8}{section.5}%
+\contentsline {section}{\numberline {4}Exercise 4: Transient analysis of the PDN without decoupling capacitors}{7}{section.4}%
+\contentsline {section}{\numberline {5}Exercise 5}{9}{section.5}%
