@@ -28,20 +28,31 @@ part of the netlist is shown in \autoref{lst:pdn_ac}, while the plot of $|Z|$ ob
 * AC test current into the die node (the "Port1" of the slide schematic)
 Iac 0 vdie DC 0 AC 1
 .ac dec 1000 1 5G
+.meas ac zmax MAX mag(V(vdie))
+.meas ac fpk  WHEN mag(V(vdie))=zmax
 .end
 \end{lstlisting}
 
 \begin{figure}[!h]
 \centering
 % Replace the placeholder below with the LTspice plot:
-% \includegraphics[width=0.95\textwidth]{./eser2/zdie_nodecaps.png}
-\fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm} Figure placeholder: LTspice plot of $|Z|$ at the die port, without decoupling capacitors\vspace{3cm}}}
+\includegraphics[width=0.95\textwidth]{./eser2/pdn_ac.png}
+%\fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm} Figure placeholder: LTspice plot of $|Z|$ at the die port, without decoupling capacitors\vspace{3cm}}}
 \caption{Impedance magnitude seen from the die interface (node \texttt{vdie}) of the PDN without decoupling capacitors, from $1\,\text{Hz}$ to $5\,\text{GHz}$.}
 \label{fig:zdie_nodecaps}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent From the Figure reported above, it is possible to see that the impedance
+reaches the peak value of $|Z|_{\max} \approx 3~\Omega$ at the frequency $f_{\text{peak}} \approx 95~\text{MHz}$,
+in line with the expected behaviour of the PDN. Moreover, exploiting the \texttt{.meas} statements in the netlist,
+LTspice automatically computes the peak value and the corresponding frequency, which are reported in the log file \texttt{pdn\_ac.log}.
+\\ The values reported in the log file are:
+\[
+|Z|_{\max} = 3.057~\Omega, \quad f_{\text{peak}} = 95.94~\text{MHz}
+\]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
 \subsection{Choice of the frequency range}
 
 The upper limit of the sweep, $5\,\text{GHz}$, is set by the bandwidth of the models. The board and the package macromodels have been obtained

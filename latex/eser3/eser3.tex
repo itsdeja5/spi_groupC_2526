@@ -1,4 +1,4 @@
-\section{Exercise 3: Stand-alone capacitor impedance poltting and validation}
+\section{Exercise 3: Stand-alone capacitor impedance plotting and validation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -37,13 +37,13 @@ Under this configuration, the transmission parameter $S_{21}$ is related to the 
 \noindent For each component, the nominal capacitance in nF is also automatically decoded from the capacitor part number.\\
 
 
-\noindent The resulting impedance magnitudes $|Z(f)|$ are plotted on a log--log scale from $0.1~\text{MHz}$ to $10~\text{GHz}$ in \ref{fig:capzvendor}. 
+\noindent The resulting impedance magnitudes $|Z(f)|$ are plotted on a log--log scale from $0.1~\text{MHz}$ to $10~\text{GHz}$ in \autoref{fig:capzvendor}. 
 As expected for real decoupling capacitors, each curve exhibits a capacitive behaviour ($|Z| \propto 1/f$) at low frequency, reaches a minimum $|Z|_{\min}$ (corresponding to the equivalent series resistance, ESR) at its self-resonance frequency $f_{\text{SRF}}$, 
 and becomes inductive ($|Z| \propto f$) above $f_{\text{SRF}}$ due to the equivalent series inductance (ESL).
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.7\textwidth]{./eser3/Images/caps.png}
+\includegraphics[width=0.7\textwidth]{./eser3/caps.png}
 \caption{Stand-alone impedance magnitude $|Z(f)|$ of the six Murata decoupling capacitors extracted from the vendor S-parameters.}
 \label{fig:capzvendor}
 \end{figure}
@@ -76,20 +76,21 @@ To verify that the SPICE subcircuit models provided by the vendor accurately rep
 an AC simulation has been performed in LTspice on a testbench netlist (\texttt{caps\_spice\_ac.cir}) containing the six capacitor models driven by unit AC current sources, 
 so that each node voltage directly equals the capacitor impedance $Z(f)$. 
 The simulated node voltages (\texttt{V(zXXX)}, where \texttt{XXX} is the three-digit capacitance code) have been exported from LTspice as a text file (\texttt{caps\_spice\_ac.txt}).
-\noindent Because the SPICE simulation and the vendor S-parameters may be defined on different frequency grids, the comparison is restricted to the overlapping frequency range and the SPICE response is interpolated onto the vendor frequency points:
-The relative magnitude error is computed as
+\noindent Because the SPICE simulation and the vendor S-parameters may be defined on different frequency grids, the comparison is restricted to the overlapping frequency range and the
+SPICE response is interpolated onto the vendor frequency points.
+The relative magnitude error is computed as:
     \begin{equation}
-        \varepsilon_{|Z|}(f) = \frac{\big||Z_{\text{SPICE}}(f)| - |Z_{\text{vendor}}(f)|\big|}{|Z_{\text{vendor}}(f)|} \times 100\%;
+        \varepsilon_{|Z|}(f) = \frac{\big||Z_{\text{SPICE}}(f)| - |Z_{\text{vendor}}(f)|\big|}{|Z_{\text{vendor}}(f)|} \times 100\%
     \end{equation}
 
 \begin{figure}[!h]
 \centering
- \includegraphics[width=0.92\textwidth]{./eser3/Images/cap_val.png}
+ \includegraphics[width=0.92\textwidth]{./eser3/cap_val.png}
 \caption{Validation of the vendor SPICE models against the vendor S-parameter data. Top: impedance magnitude $|Z(f)|$ from vendor S-parameters (solid lines) and SPICE AC simulation (dashed black lines). Bottom: relative magnitude error $\varepsilon_{|Z|}$ versus frequency.}
 \label{fig:capspiceval}
 \end{figure}
 
-\noindent The visual comparison between the vendor S-parameter curves and the SPICE simulations show a loss of accracy near the self-resonance frequency. 
+\noindent The visual comparison between the vendor S-parameter curves and the SPICE simulations show a loss of accuracy near the self-resonance frequency. 
 This is confirmed by the relative magnitude error which peaks at the self-resonance frequency and is higher for bigger capacitors.
 
 \begin{table}[!h]

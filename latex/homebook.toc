@@ -4,9 +4,18 @@
 \contentsline {subsection}{\numberline {1.2}Assembly of the complete netlist}{3}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Exercise 2: PDN impedance in the frequency domain}{4}{section.2}%
 \contentsline {subsection}{\numberline {2.1}AC analysis of the PDN}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Choice of the frequency range}{4}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Exercise 3: Stand-alone capacitor impedance poltting and validation}{6}{section.3}%
+\contentsline {subsection}{\numberline {2.2}Choice of the frequency range}{5}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Exercise 3: Stand-alone capacitor impedance plotting and validation}{6}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Extraction of capacitor impedance from vendor S-parameters}{6}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Validation of the vendor SPICE models}{7}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Exercise 4: Transient analysis of the PDN without decoupling capacitors}{8}{section.4}%
-\contentsline {section}{\numberline {5}Exercise 5}{10}{section.5}%
+\contentsline {section}{\numberline {5}Exercise 5: Optimization of the decoupling capacitors}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Impedance and voltage ripple with decoupling capacitors}{10}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Characterisation of ports and capacitors: the 6+1 AC simulations}{11}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Six simulations for the impedance matrix.}{11}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}One simulation for the capacitors.}{11}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}Search of the optimal configuration}{12}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}AC and transient analysis with the optimal decoupling capacitors}{12}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Frequency domain analysis of the PDN with optimal decaps configuration}{13}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Time domain simulation of the PDN with optimal decaps configuration}{13}{subsubsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.5}Comparison with other configurations}{14}{subsection.5.5}%

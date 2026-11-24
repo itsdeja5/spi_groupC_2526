@@ -289,6 +289,12 @@ def main():
         if m % 1000 == 0:
             print(f'  {m}/{len(cfgs)} configurations evaluated ({time.time() - t0:.0f} s)')
     top = np.argsort(pk)[:args.nref]
+    # save the ripple of ALL the configurations (one row per configuration)
+    with open(P('all_vpp.txt'), 'w') as fa:
+        fa.write('Vpp_V C01 C02 C03 C04 C05\n')
+        for m, c in enumerate(cfgs):
+            fa.write(f'{pk[m]:.6f} ' + ' '.join(CAPS[k][1] for k in c) + '\n')
+    
     final = {int(m): ripple_vpp(Z, Zc, cfgs[m], I_load, allk, n) for m in top}      # refine with all lines
     rank = sorted(final, key=final.get)
     print(f'search finished in {time.time() - t0:.0f} s')

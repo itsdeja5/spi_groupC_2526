@@ -17,7 +17,7 @@ maximum time step of 72~ps, the same step of the PWL data, otherwise LTspice cou
 To keep the output file small
 only \texttt{V(vdie)} is saved, and a \texttt{.meas} statement gives the peak-to-peak value directly from LTspice.
 
-\begin{lstlisting}[language={}, caption={Netlist \texttt{pdn\_tran.cir} used for the transient analysis.}, label={lst:pdn_tran}]
+\begin{lstlisting}[language={ltspice}, caption={Netlist \texttt{pdn\_tran.cir} used for the transient analysis.}, label={lst:pdn_tran}]
 .include "../eser1/pdn.cir"
 .save V(vdie)
 .tran 72p 12u 0 72p
