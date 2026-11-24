@@ -40,14 +40,14 @@ a realistic option.
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{|l|c|c|}
+  \begin{tabular}{|l|c|}
     \hline
-    \textbf{Quantity} & \textbf{Value} (full) & \textbf{Value} (steady-state) \\
+    \textbf{Quantity} & \textbf{Value} (full) \\
     \hline
-    Peak-to-peak ripple (LTspice \texttt{.meas}) & 280.8~mV &  \\
-    Minimum voltage                              & 0.844~V  &  \\
-    Maximum voltage                              & 1.125~V  &  \\
-    Average voltage                              & 0.986~V  &  \\
+    Peak-to-peak ripple (LTspice \texttt{.meas}) & 280.8~mV  \\
+    Minimum voltage                              & 0.844~V   \\
+    Maximum voltage                              & 1.125~V   \\
+    Average voltage                              & 0.986~V   \\
     \hline
   \end{tabular}
   \caption{Voltage ripple at the die interface without decoupling capacitors.}
@@ -59,12 +59,7 @@ a realistic option.
 points. One could expect mainly a voltage drop, but the voltage actually goes both below and above 1~V, almost symmetrically. The average value
 is 0.986~V: the 14~mV of difference from 1~V, with an average current of 109~mA, is the static drop on the DC resistance of the PDN.
 
-\noindent\\ However, all the measurements described above are taken inside the whole simulation window, so they include the initial transient,
-when the voltage is still settling from 0~V to its steady-state value. In order to have a more realistic evaluation of the ripple,
-the first 0.5~$\mu$s of simulation should be excluded, so only the last 11.5~$\mu$s are really significant for the ripple evaluation.
-In this way, all measurements are performed when the voltage has already settled to its steady-state behaviour.
-
-\autoref{fig:vdie_zoom} shows a zoom of 100~ns around the minimum of the voltage. Here the voltage looks almost like a sinusoid with a period of
+\noindent\\ \autoref{fig:vdie_zoom} shows a zoom of 100~ns around the minimum of the voltage. Here the voltage looks almost like a sinusoid with a period of
 10~ns, i.e.\ at 100~MHz, the same frequency of the activity of the die. The voltage does not follow each current pulse separately: the
 oscillation grows over several cycles, which is the typical behaviour of a resonant circuit excited at its resonance frequency.
 
@@ -76,6 +71,8 @@ oscillation grows over several cycles, which is the typical behaviour of a reson
   \caption{Zoom of the voltage at the die interface over 100~ns, around the minimum of the voltage.}
   \label{fig:vdie_zoom}
 \end{figure}
+
+
 
 \noindent This is consistent with the result of Exercise~2: the impedance of the PDN
 seen from the die has its main peak at about 96~MHz ($3.1~\Omega$), and at

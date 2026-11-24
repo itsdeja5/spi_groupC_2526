@@ -224,7 +224,7 @@ transient simulation starts from the DC operating point and includes the start-u
 \hline
 $\max |Z_{die}|$ [$\Omega$]                          & 3.06 & 0.8286 \\
 Frequency of the maximum [MHz]                       & 95.9 & 74.918 \\
-$|Z_{die}|$ at 100~MHz [$\Omega$]                    & 2.05 & 0.170 \\
+$|Z_{die}|$ at 100~MHz [$\Omega$]                    & 2.05 & 0.1702 \\
 $V_{pp}$ from the method [mV]                        & 282.2 & 57.6 \\
 $V_{pp}$ from the transient (LTspice) [mV]           & 280.8 & 59.5 \\
 \hline
@@ -265,3 +265,10 @@ Optimal               & 0.829 (74.9~MHz) & 0.170 & 57.6  & 59.5 \\
 configurations with decoupling capacitors, $96.5~\text{mV}$, while the lowest ripple of this group is obtained with $5\times 2.2~\text{nF}$, $60.1~\text{mV}$. In all cases the capacitors reduce the ripple with respect to the
 PDN alone by a factor of about three or more. The optimal configuration, which mixes capacitors with different self-resonance frequencies, gives the lowest ripple of all, but its advantage over the best uniform
 configuration is small, about $4\%$: the improvement of the optimisation comes mainly from the choice of the right values, and only marginally from their distribution among the five locations.
+
+
+%\noindent\\ However, all the measurements described above are taken inside the whole simulation window, so they include the initial transient,
+%when the voltage is still settling from 0~V to its steady-state value. In order to have a more realistic evaluation of the ripple,
+%the first 0.5~$\mu$s of simulation should be excluded, so only the last 11.5~$\mu$s are really significant for the ripple evaluation.
+%In this way, all measurements are performed when the voltage has already settled to its steady-state behaviour.\\ As a consequence, a less pessimistic
+%scenario is obtained (see last column of \autoref{tab:ripple}), but the measured ripple is still critical, equal to  peak-to-peak, which is  of the supply voltage, and the voltage still goes below 0.95~V and above 1.05~V.
