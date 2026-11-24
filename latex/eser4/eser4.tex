@@ -75,9 +75,19 @@ oscillation grows over several cycles, which is the typical behaviour of a reson
 
 
 \noindent This is consistent with the result of Exercise~2: the impedance of the PDN
-seen from the die has its main peak at about 96~MHz ($3.1~\Omega$), and at
+seen from the die has its main peak at about 96~MHz ($3.06~\Omega$), and at
 100~MHz, the frequency of the main component of the die current, it is
 still about $2.0~\Omega$.
+The peak-to-peak ripple obtained in this work, about 281~mV, is higher than
+the reference value of about 250~mV provided. This
+difference is consistent with the result of Exercise~2: the maximum of the
+PDN impedance obtained here is about $3.06~\Omega$, while the reference
+value is about $2.9~\Omega$. Since the ripple is mainly caused by the die
+current at the resonance of the PDN, a higher impedance peak produces a
+proportionally higher ripple: both values are about 10\% higher
+than the reference ones. The ripple is also confirmed by the
+frequency-domain method of Exercise~5, which gives 282.2~mV without
+decoupling capacitors.
 So the problem is not the current itself, but the fact that its main component falls exactly on the resonance peak of the PDN. This also shows
 what the decoupling capacitors have to do in Exercise~5: reduce the impedance at 100~MHz, or move the resonance away from the main frequency of the
 die current.
