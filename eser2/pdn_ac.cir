@@ -12,4 +12,5 @@ Iac 0 vdie DC 0 AC 1
 .ac dec 1000 1 5G
 .meas ac zmax MAX mag(V(vdie))
 .meas ac fpk  WHEN mag(V(vdie))=zmax
+.meas ac z100M FIND mag(V(vdie)) at 100Meg
 .end

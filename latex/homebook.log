@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.22)  24 NOV 2026 22:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.22)  24 NOV 2026 23:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -697,18 +697,18 @@ File: ./eser4/vdie_zoom.png Graphic file (type png)
 Package pdftex.def Info: ./eser4/vdie_zoom.png  used on input line 70.
 (pdftex.def)             Requested size: 426.79135pt x 139.12473pt.
 ) [10 <./eser4/vdie_zoom.png>] (eser5/eser5.tex [11] [12]
-<./eser5/ripple_hist.png, id=307, 1445.4pt x 697.10437pt>
+<./eser5/ripple_hist.png, id=307, 1219.55624pt x 657.95813pt>
 File: ./eser5/ripple_hist.png Graphic file (type png)
 <use ./eser5/ripple_hist.png>
 Package pdftex.def Info: ./eser5/ripple_hist.png  used on input line 153.
-(pdftex.def)             Requested size: 341.43437pt x 164.6705pt.
- [13 <./eser5/ripple_hist.png (PNG copy)>]
-<./eser5/zdie_best.png, id=320, 1361.085pt x 662.475pt>
+(pdftex.def)             Requested size: 341.43437pt x 184.20694pt.
+ [13 <./eser5/ripple_hist.png>]
+<./eser5/zdie_best.png, id=321, 1361.085pt x 662.475pt>
 File: ./eser5/zdie_best.png Graphic file (type png)
 <use ./eser5/zdie_best.png>
 Package pdftex.def Info: ./eser5/zdie_best.png  used on input line 192.
 (pdftex.def)             Requested size: 405.45047pt x 197.33894pt.
-<./eser5/vdie_best.png, id=322, 1448.41125pt x 662.475pt>
+<./eser5/vdie_best.png, id=323, 1448.41125pt x 662.475pt>
 File: ./eser5/vdie_best.png Graphic file (type png)
 <use ./eser5/vdie_best.png>
 Package pdftex.def Info: ./eser5/vdie_best.png  used on input line 206.
@@ -737,11 +737,11 @@ Here is how much of TeX's memory you used:
  40346 multiletter control sequences out of 15000+600000
  633661 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,14n,79p,741b,2058s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 71i,14n,79p,741b,1778s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx7.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
-Output written on homebook.pdf (17 pages, 1473753 bytes).
+Output written on homebook.pdf (17 pages, 1476805 bytes).
 PDF statistics:
- 465 PDF objects out of 1000 (max. 8388607)
+ 466 PDF objects out of 1000 (max. 8388607)
  135 named destinations out of 1000 (max. 500000)
  211 words of extra memory for PDF output out of 10000 (max. 10000000)
 
