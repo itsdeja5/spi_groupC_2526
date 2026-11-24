@@ -10,4 +10,5 @@
 
 .tran 72p 12u 0 72p
 .meas tran vpp PP V(vdie)
+.meas tran vpp_ss PP V(vdie) FROM=0.5u TO=12u
 .end

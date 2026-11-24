@@ -122,7 +122,9 @@ direct simulation of the PDN with the decoupling capacitors, described in \autor
 
 The search is performed by the Python script \texttt{best\_decaps.py}, which reads the exported LTspice data (the six columns of $\mathbf{Z}$, the capacitor
 impedances and the PWL die current), and applies the method of \autoref{sec:theory} to the $7776$ configurations. For each one it evaluates \eqref{eq:zdie} at
-the frequency lines, applies \eqref{eq:vrip}, transforms back to the time domain and measures $V_{pp}$. To reduce the computation time, the first evaluation
+the frequency lines, applies \eqref{eq:vrip}, transforms back to the time domain and measures $V_{pp}$.
+
+\noindent\\ To reduce the computation time, the first evaluation
 uses only the frequency lines that hold $99.9\%$ of the power of the die current; the $300$ best candidates are then re-evaluated with all the
 $59\,999$ lines. The whole search takes about two minutes, against the more than two weeks of the simulation of all the configurations. The result is written in a text file,
 with the netlist lines of the best configuration ready to be pasted in the PDN netlist.
@@ -177,7 +179,9 @@ Xc05 c05 0 GCM033R71A222KA03      * 2.2nF
 \end{lstlisting}
 
 %\noindent\\ \textbf{Frequency domain.} The impedance seen from the die is shown in \autoref{fig:zdie_best}, together with the one of the PDN without decoupling capacitors.
-\subsubsection{Frequency domain analysis of the PDN with optimal decaps configuration} The impedance seen from the die is shown in \autoref{fig:zdie_best}, together with the one of the PDN without decoupling capacitors.
+\subsubsection{Frequency domain analysis of the PDN with optimal decaps configuration}
+The impedance seen from the die with the optimal decaps configuration is shown in \autoref{fig:zdie_best}
+%together with the one of the PDN without decoupling capacitors.
 The maximum of the impedance falls from $3.06~\Omega$ at $95.9~\text{MHz}$ to $0.829~\Omega$ at $74.9~\text{MHz}$ (the \texttt{.meas} of LTspice gives
 $-1.63263~\text{dB}$). The resonance peak is therefore reduced by a factor of about $3.7$, and it is moved away from the $100~\text{MHz}$ line of the die current, where the impedance is now only
 $0.17~\Omega$. The maximum and the frequency obtained from \eqref{eq:zdie} are the same ones of LTspice, which confirms that the matrix method reproduces the direct simulation.
@@ -185,9 +189,9 @@ $0.17~\Omega$. The maximum and the frequency obtained from \eqref{eq:zdie} are t
 \begin{figure}[!h]
 \centering
 % Replace the placeholder below with the LTspice plot (no decaps and optimal decaps on the same axes):
-% \includegraphics[width=0.95\textwidth]{./eser5/zdie_best.png}
-\fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm} Figure placeholder: $|Z_{die}|$ without decoupling capacitors and with the optimal configuration\vspace{3cm}}}
-\caption{Impedance magnitude seen from the die interface, without decoupling capacitors and with the optimal configuration.}
+\includegraphics[width=0.95\textwidth]{./eser5/zdie_best.png}
+%\fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm} Figure placeholder: $|Z_{die}|$ without decoupling capacitors and with the optimal configuration\vspace{3cm}}}
+\caption{Impedance magnitude seen from the die interface with optimal decaps configuration}
 \label{fig:zdie_best}
 \end{figure}
 
@@ -199,8 +203,8 @@ The waveform is shown in \autoref{fig:vdie_best}.
 \begin{figure}[!h]
 \centering
 % Replace the placeholder below with the LTspice plot of V(vdie) with the optimal decaps:
-% \includegraphics[width=\textwidth]{./eser5/vdie_best.png}
-\fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm} Figure placeholder: $V(\texttt{vdie})$ with the optimal decoupling capacitors\vspace{3cm}}}
+\includegraphics[width=\textwidth]{./eser5/vdie_best.png}
+%\fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm} Figure placeholder: $V(\texttt{vdie})$ with the optimal decoupling capacitors\vspace{3cm}}}
 \caption{Voltage at the die interface with the optimal decoupling capacitors over the whole simulation ($12~\mu\text{s}$).}
 \label{fig:vdie_best}
 \end{figure}
@@ -218,8 +222,8 @@ transient simulation starts from the DC operating point and includes the start-u
 \hline
  & \textbf{No decaps} & \textbf{Optimal decaps} \\
 \hline
-$\max |Z_{die}|$ [$\Omega$]                          & 3.06 & 0.829 \\
-Frequency of the maximum [MHz]                       & 95.9 & 74.9 \\
+$\max |Z_{die}|$ [$\Omega$]                          & 3.06 & 0.8286 \\
+Frequency of the maximum [MHz]                       & 95.9 & 74.918 \\
 $|Z_{die}|$ at 100~MHz [$\Omega$]                    & 2.05 & 0.170 \\
 $V_{pp}$ from the method [mV]                        & 282.2 & 57.6 \\
 $V_{pp}$ from the transient (LTspice) [mV]           & 280.8 & 59.5 \\

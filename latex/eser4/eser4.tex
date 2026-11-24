@@ -6,7 +6,7 @@ In this exercise the PDN without decoupling capacitors is simulated in the time 
 ripple at the die interface (node \texttt{vdie}) is evaluated. This is the reference case: in Exercise~5 the different decap configurations are
 going to be compared with this result.
 
-\noindent The simulation uses the netlist \texttt{pdn\_tran.cir} (\autoref{lst:pdn_tran}). It simply includes the PDN of Exercise~1, so the VRM is still
+\noindent\\ The simulation uses the netlist \texttt{pdn\_tran.cir} (\autoref{lst:pdn_tran}). It simply includes the PDN of Exercise~1, so the VRM is still
 the ideal 1~V source and the load is the PWL current source of the die model. 
 The die current, already described in Exercise~1, is a PWL waveform
 that varies between about 21 and 287~mA, with an average value of about
@@ -22,13 +22,14 @@ only \texttt{V(vdie)} is saved, and a \texttt{.meas} statement gives the peak-to
 .save V(vdie)
 .tran 72p 12u 0 72p
 .meas tran vpp PP V(vdie)
+.meas tran vpp_ss PP V(vdie) FROM=0.5u TO=12u
 .end
 \end{lstlisting}
 
 \noindent The simulation takes about 3 minutes. This already shows that running a transient simulation for every decap configuration in Exercise~5 is not
 a realistic option.
 
-The voltage at the die over the whole simulation is shown in \autoref{fig:vdie_time}, and the main values are collected in \autoref{tab:ripple}.
+\noindent The voltage at the die over the whole simulation is shown in \autoref{fig:vdie_time}, and the main values are collected in \autoref{tab:ripple}.
 
 \begin{figure}[h]
   \centering
@@ -39,14 +40,14 @@ The voltage at the die over the whole simulation is shown in \autoref{fig:vdie_t
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{|l|c|}
+  \begin{tabular}{|l|c|c|}
     \hline
-    \textbf{Quantity} & \textbf{Value} \\
+    \textbf{Quantity} & \textbf{Value} (full) & \textbf{Value} (steady-state) \\
     \hline
-    Peak-to-peak ripple (LTspice \texttt{.meas}) & 280.8~mV \\
-    Minimum voltage                              & 0.844~V \\
-    Maximum voltage                              & 1.125~V \\
-    Average voltage                              & 0.986~V \\
+    Peak-to-peak ripple (LTspice \texttt{.meas}) & 280.8~mV &  \\
+    Minimum voltage                              & 0.844~V  &  \\
+    Maximum voltage                              & 1.125~V  &  \\
+    Average voltage                              & 0.986~V  &  \\
     \hline
   \end{tabular}
   \caption{Voltage ripple at the die interface without decoupling capacitors.}
@@ -57,6 +58,11 @@ The voltage at the die over the whole simulation is shown in \autoref{fig:vdie_t
 1.125~V, so the voltage goes well outside a typical $\pm 5\%$ tolerance band, and this happens over the whole simulation, not only in a few
 points. One could expect mainly a voltage drop, but the voltage actually goes both below and above 1~V, almost symmetrically. The average value
 is 0.986~V: the 14~mV of difference from 1~V, with an average current of 109~mA, is the static drop on the DC resistance of the PDN.
+
+\noindent\\ However, all the measurements described above are taken inside the whole simulation window, so they include the initial transient,
+when the voltage is still settling from 0~V to its steady-state value. In order to have a more realistic evaluation of the ripple,
+the first 0.5~$\mu$s of simulation should be excluded, so only the last 11.5~$\mu$s are really significant for the ripple evaluation.
+In this way, all measurements are performed when the voltage has already settled to its steady-state behaviour.
 
 \autoref{fig:vdie_zoom} shows a zoom of 100~ns around the minimum of the voltage. Here the voltage looks almost like a sinusoid with a period of
 10~ns, i.e.\ at 100~MHz, the same frequency of the activity of the die. The voltage does not follow each current pulse separately: the

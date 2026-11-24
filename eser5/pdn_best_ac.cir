@@ -16,4 +16,6 @@ Xc05 c05 0 GCM033R71A222KA03      * 2.2nF
 Iac 0 vdie DC 0 AC 1
 .ac lin 59999 83334.66668800035 4999996666.613333
 .meas ac zmax MAX mag(V(vdie))
+.meas fpk WHEN mag(V(vdie))=zmax
+.meas ac z100M FIND mag(V(vdie)) at 100Meg
 .end
