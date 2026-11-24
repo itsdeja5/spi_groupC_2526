@@ -75,7 +75,7 @@ Fourier transform has lines at the frequencies
 so \eqref{eq:vrip} is evaluated at each line $f_k$, with $I_{load}(f_k)$ equal to the DFT of the current. The ripple waveform in the time
 domain is then the inverse transform of $V_{rip}(f_k)$, and the figure of merit used in the optimisation is its peak-to-peak value,
 \begin{equation}
-  V_{pp} = max\{v_{rip}(t)\} - min\{v_{rip}(t)\}
+  V_{pp} = \max\{v_{rip}(t)\} - \min\{v_{rip}(t)\}
 \end{equation}
 The DC component is not included, since it does not change the peak-to-peak value. It should be noticed that the use of the DFT implicitly assumes that the
 $12~\mu\text{s}$ current is repeated periodically, so $V_{pp}$ is the ripple of the periodic steady state: it does not contain the start-up transient that
