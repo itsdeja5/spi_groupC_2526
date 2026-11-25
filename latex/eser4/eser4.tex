@@ -61,7 +61,7 @@ is 0.986~V: the 14~mV of difference from 1~V, with an average current of 109~mA,
 
 \noindent\\ \autoref{fig:vdie_zoom} shows a zoom of 100~ns around the minimum of the voltage. Here the voltage looks almost like a sinusoid with a period of
 10~ns, i.e.\ at 100~MHz, the same frequency of the activity of the die. The voltage does not follow each current pulse separately: the
-oscillation grows over several cycles, which is the typical behaviour of a resonant circuit excited at its resonance frequency.
+oscillation builds up over several cycles, which is the typical behaviour of a resonant circuit excited at its resonance frequency.
 
 % FIGURE 2 - LTspice: same plot as Figure 1, click on the numbers of the time axis and set
 % Left = 4.9u, Right = 5u (Y axis can stay 0.8-1.2 V). Export as latex/eser4/vdie_zoom.png
@@ -72,20 +72,25 @@ oscillation grows over several cycles, which is the typical behaviour of a reson
   \label{fig:vdie_zoom}
 \end{figure}
 
-
-
 \noindent This is consistent with the result of Exercise~2: the impedance of the PDN
-seen from the die has its main peak at about 96~MHz ($3.06~\Omega$), and at
-100~MHz, the frequency of the main component of the die current, it is
-still about $2.0~\Omega$.
-The peak-to-peak ripple obtained in this work, about 281~mV, is higher than
-the reference value of about 250~mV provided. This
-difference is consistent with the result of Exercise~2: the maximum of the
-PDN impedance obtained here is about $3.06~\Omega$, while the reference
-value is about $2.9~\Omega$. Since the ripple is mainly caused by the die
-current at the resonance of the PDN, a higher impedance peak produces a
-proportionally higher ripple: both values are about 10\% higher
-than the reference ones. The ripple is also confirmed by the
+seen from the die has its main peak at 95.94~MHz ($3.057~\Omega$), and at
+100~MHz, the frequency of the main component of the die current (which reaches the maximum value
+$\text{I}_\text{max} = 56.6\,\text{mA}$, @ $\text{f} = 100\,\text{MHz}$), the impedance is
+still high, with a value of $2.053~\Omega$.
+
+\noindent\\ The peak-to-peak ripple obtained in this section, equal 280.8~mV, is higher than
+the provided reference value, equal to 249.5~mV. This difference is consistent with the result of
+Exercise~2: in fact, the maximum of the PDN impedance obtained here is higher than the reference one,
+which value is equal to $2.8969~\Omega$ at 96~MHz. Since the ripple is mainly caused by the die current at the
+resonance of the PDN, a higher impedance peak is expected to produce a higher ripple.\\
+This is confirmed by the results: the impedance peak is about 5.5\%
+higher than the reference one (3.057~$\Omega$ against 2.8969~$\Omega$),
+and the peak-to-peak ripple is about 12.5\% higher (280.8~mV against
+249.5~mV). The two increases are not equal, because the ripple depends
+on the impedance over the whole spectrum of the die current and not only
+on the peak value.
+
+\noindent\\ The value found for the ripple is also confirmed by the
 frequency-domain method of Exercise~5, which gives 282.2~mV without
 decoupling capacitors.
 So the problem is not the current itself, but the fact that its main component falls exactly on the resonance peak of the PDN. This also shows

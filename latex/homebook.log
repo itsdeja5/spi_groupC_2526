@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.22)  25 NOV 2026 17:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.22)  25 NOV 2026 20:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -656,7 +656,7 @@ Overfull \hbox (4.17918pt too wide) in paragraph at lines 7--10
 <./eser2/pdn_ac.png, id=178, 1442.38875pt x 662.475pt>
 File: ./eser2/pdn_ac.png Graphic file (type png)
 <use ./eser2/pdn_ac.png>
-Package pdftex.def Info: ./eser2/pdn_ac.png  used on input line 39.
+Package pdftex.def Info: ./eser2/pdn_ac.png  used on input line 40.
 (pdftex.def)             Requested size: 405.45047pt x 186.21954pt.
 [4 <./eser2/pdn_ac.png>]) [5] (eser3/eser3.tex (C:\Users\Antonio\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
@@ -668,7 +668,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
-<./eser3/caps.png, id=202, 1168.8468pt x 577.1964pt>
+<./eser3/caps.png, id=203, 1168.8468pt x 577.1964pt>
 File: ./eser3/caps.png Graphic file (type png)
 <use ./eser3/caps.png>
 Package pdftex.def Info: ./eser3/caps.png  used on input line 46.
@@ -679,56 +679,56 @@ Overfull \hbox (8.95663pt too wide) in paragraph at lines 51--52
  []
 
 [6 <./eser3/caps.png (PNG copy)>]
-<./eser3/cap_val.png, id=220, 1161.6198pt x 577.1964pt>
+<./eser3/cap_val.png, id=221, 1161.6198pt x 577.1964pt>
 File: ./eser3/cap_val.png Graphic file (type png)
 <use ./eser3/cap_val.png>
 Package pdftex.def Info: ./eser3/cap_val.png  used on input line 88.
 (pdftex.def)             Requested size: 392.64725pt x 195.09923pt.
  [7{C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc} <./eser3/cap_val.png (PNG copy)>]) [8] (eser4/eser4.tex
-<./eser4/vdie_time.png, id=239, 812.28468pt x 350.81062pt>
+<./eser4/vdie_time.png, id=240, 812.28468pt x 350.81062pt>
 File: ./eser4/vdie_time.png Graphic file (type png)
 <use ./eser4/vdie_time.png>
 Package pdftex.def Info: ./eser4/vdie_time.png  used on input line 36.
 (pdftex.def)             Requested size: 426.79135pt x 184.32286pt.
  [9 <./eser4/vdie_time.png>]
-<./eser4/vdie_zoom.png, id=255, 1399.47844pt x 456.20438pt>
+<./eser4/vdie_zoom.png, id=256, 1399.47844pt x 456.20438pt>
 File: ./eser4/vdie_zoom.png Graphic file (type png)
 <use ./eser4/vdie_zoom.png>
 Package pdftex.def Info: ./eser4/vdie_zoom.png  used on input line 70.
 (pdftex.def)             Requested size: 426.79135pt x 139.12473pt.
 ) [10 <./eser4/vdie_zoom.png>] (eser5/eser5.tex [11] [12]
-<./eser5/ripple_hist.png, id=307, 1219.55624pt x 657.95813pt>
+<./eser5/ripple_hist.png, id=308, 1219.55624pt x 657.95813pt>
 File: ./eser5/ripple_hist.png Graphic file (type png)
 <use ./eser5/ripple_hist.png>
 Package pdftex.def Info: ./eser5/ripple_hist.png  used on input line 153.
 (pdftex.def)             Requested size: 341.43437pt x 184.20694pt.
  [13 <./eser5/ripple_hist.png>]
-<./eser5/zdie_best.png, id=321, 1361.085pt x 662.475pt>
+<./eser5/zdie_best.png, id=322, 1361.085pt x 662.475pt>
 File: ./eser5/zdie_best.png Graphic file (type png)
 <use ./eser5/zdie_best.png>
 Package pdftex.def Info: ./eser5/zdie_best.png  used on input line 192.
 (pdftex.def)             Requested size: 384.1096pt x 186.95747pt.
  [14 <./eser5/zdie_best.png>]
-<./eser5/vdie_best.png, id=335, 1448.41125pt x 662.475pt>
+<./eser5/vdie_best.png, id=336, 1448.41125pt x 662.475pt>
 File: ./eser5/vdie_best.png Graphic file (type png)
 <use ./eser5/vdie_best.png>
-Package pdftex.def Info: ./eser5/vdie_best.png  used on input line 225.
+Package pdftex.def Info: ./eser5/vdie_best.png  used on input line 226.
 (pdftex.def)             Requested size: 384.1096pt x 175.67635pt.
 
-Overfull \hbox (5.31403pt too wide) in paragraph at lines 261--275
+Overfull \hbox (5.31403pt too wide) in paragraph at lines 264--278
  [][] 
  []
 
 [15 <./eser5/vdie_best.png>]
-<./eser5/zdie_comp.png, id=349, 1206.75844pt x 642.14906pt>
+<./eser5/zdie_comp.png, id=350, 1206.75844pt x 642.14906pt>
 File: ./eser5/zdie_comp.png Graphic file (type png)
 <use ./eser5/zdie_comp.png>
-Package pdftex.def Info: ./eser5/zdie_comp.png  used on input line 294.
+Package pdftex.def Info: ./eser5/zdie_comp.png  used on input line 297.
 (pdftex.def)             Requested size: 384.1096pt x 204.39447pt.
-<./eser5/zdie_6conf.png, id=350, 1198.4775pt x 639.13782pt>
+<./eser5/zdie_6conf.png, id=351, 1198.4775pt x 639.13782pt>
 File: ./eser5/zdie_6conf.png Graphic file (type png)
 <use ./eser5/zdie_6conf.png>
-Package pdftex.def Info: ./eser5/zdie_6conf.png  used on input line 303.
+Package pdftex.def Info: ./eser5/zdie_6conf.png  used on input line 306.
 (pdftex.def)             Requested size: 384.1096pt x 204.84036pt.
  [16 <./eser5/zdie_comp.png> <./eser5/zdie_6conf.png>]) [17] (outro.tex)) [18] (homebook.aux)
  ***********
@@ -739,17 +739,17 @@ Package rerunfilecheck Info: File `homebook.out' has not changed.
 (rerunfilecheck)             Checksum: CD2AD5A6983118177E89CD047D211F87;6245.
  ) 
 Here is how much of TeX's memory you used:
- 18541 strings out of 474486
- 300005 string characters out of 5742810
+ 18544 strings out of 474486
+ 300084 string characters out of 5742810
  2081542 words of memory out of 5000000
- 40366 multiletter control sequences out of 15000+600000
+ 40368 multiletter control sequences out of 15000+600000
  633661 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,14n,79p,741b,1778s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx7.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/Antonio/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
-Output written on homebook.pdf (20 pages, 1613677 bytes).
+Output written on homebook.pdf (20 pages, 1617260 bytes).
 PDF statistics:
- 491 PDF objects out of 1000 (max. 8388607)
- 141 named destinations out of 1000 (max. 500000)
+ 492 PDF objects out of 1000 (max. 8388607)
+ 142 named destinations out of 1000 (max. 500000)
  221 words of extra memory for PDF output out of 10000 (max. 10000000)
 

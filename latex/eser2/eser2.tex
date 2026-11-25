@@ -30,6 +30,7 @@ Iac 0 vdie DC 0 AC 1
 .ac dec 1000 1 5G
 .meas ac zmax MAX mag(V(vdie))
 .meas ac fpk  WHEN mag(V(vdie))=zmax
+.meas ac z100M FIND mag(V(vdie)) at 100Meg
 .end
 \end{lstlisting}
 
@@ -43,7 +44,7 @@ Iac 0 vdie DC 0 AC 1
 \end{figure}
 
 \noindent From the Figure reported above, it is possible to see that the impedance
-reaches the peak value of $|Z|_{\max} \approx 3~\Omega$ at the frequency $f_{\text{peak}} \approx 95~\text{MHz}$,
+reaches the peak value of $|Z|_{\max} \approx 3~\Omega$ at the frequency $f_{\text{peak}} = 96~\text{MHz}$,
 in line with the expected behaviour of the PDN. Moreover, exploiting the \texttt{.meas} statements in the netlist,
 LTspice automatically computes the peak value and the corresponding frequency, which are reported in the log file \texttt{pdn\_ac.log}.
 \\ The values reported in the log file are:

@@ -201,7 +201,8 @@ peak-to-peak ripple measured by LTspice over the whole simulation is $59.47~\tex
 $280.8~\text{mV}$ of the PDN without decoupling capacitors: the ripple is reduced by about $79\%$, that is by a factor of $4.7$.
 
 \noindent\\ However, it is important to notice that all the measurements described until now are taken inside the whole simulation window,
-so they include the \textit{initial transient}, when the voltage is still settling from 0~V to its steady-state value. In order to have a more realistic evaluation of the ripple,
+so they include the \textit{initial transient}, when the voltage is still going
+through the start-up of the network and has not yet reached its steady-state value. In order to have a more realistic evaluation of the ripple,
 the first 0.5~$\mu$s of simulation should be excluded, so only the last 11.5~$\mu$s are really significant for the ripple evaluation.
 In this way, all measurements are performed when the voltage has already settled to its steady-state behaviour.
 
@@ -241,7 +242,9 @@ $\max |Z_{die}|$ [$\Omega$]                          & 3.057 & 0.8286 \\
 Frequency of the maximum [MHz]                       & 95.94 & 74.918 \\
 $|Z_{die}|$ at 100~MHz [$\Omega$]                    & 2.053 & 0.1702 \\
 $V_{pp}$ from the method [mV]                        & 282.2 & 57.6 \\
-$V_{pp}$ from the transient (LTspice) [mV]           & 280.8 & 59.47|56.24 \\
+%$V_{pp}$ from the transient (LTspice) [mV]           & 280.8 & 59.47(56.24) \\
+$V_{pp}$ from the transient, full window [mV] & 280.8 & 59.47 \\
+$V_{pp}$ from the transient, from 0.5~$\mu$s [mV] & 280.8 & 56.24 \\
 \hline
 \end{tabular}
 \end{table}
@@ -275,10 +278,10 @@ Optimal               & 0.829 (74.92~MHz) & 0.170 & 57.6  & 56.24 \\
 \end{table}
 
 \noindent As can be seen from the table above, the values predicted by the analytical method of \autoref{sec:theory} are confirmed
-by direct LTspice simulations, after exluding the initial transient, with a maximum difference of about $3\%$ for the ripple.
+by direct LTspice simulations, after excluding the initial transient, with a maximum difference of about $3\%$ for the ripple.
 
 \noindent With the same capacitor on all the locations, the ripple does not decrease monotonically with increasing capacitance: the five 10~nF capacitors, the largest ones, give the highest ripple among the
-configurations with decoupling capacitors, $96.06~\text{mV}$, while the lowest ripple of this group is obtained with $5\times 2.2~\text{nF}$, $58.45~\text{mV}$.
+configurations with decoupling capacitors, $96.06~\text{mV}$, while the lowest ripple of this group is obtained with $5\times 2.2~\text{nF}$, equal to $58.45~\text{mV}$.
 \\ In all cases the capacitors reduce the ripple with respect to the
 PDN alone by a factor of about three or more. The optimal configuration, which mixes capacitors with different self-resonance frequencies, gives the lowest ripple of all, but its advantage over the best uniform
 configuration is small, about $4\%$: the improvement of the optimisation comes mainly from the choice of the right values, and only marginally from their distribution among the five locations.
@@ -286,7 +289,7 @@ configuration is small, about $4\%$: the improvement of the optimisation comes m
 \noindent\\ While the previous comparison focused on the voltage ripple, the impedance-frequency response provides further insight into the behaviour of the different configurations and helps
 explain the observed differences in performance. \autoref{fig:zdie_comp} compares the PDN without decoupling
 capacitors, the configuration using five 10 nF capacitors and the optimal configuration. A second comparison, shown in \autoref{fig:zdie_6conf}, focuses on all the uniform
-configurations, allowing to examinate more closely the effect of the capacitance value on the impedance response.
+configurations, allowing to examine more closely the effect of the capacitance value on the impedance response.
 
 \begin{figure}[!h]
 \centering
@@ -314,11 +317,18 @@ impedance peaks.
 shifts towards higher frequencies. However, a second peak also becomes increasingly pronounced at lower frequencies. This additional resonance is particularly relevant because,
 as the capacitance decreases, it becomes more prominent and progressively shifts towards 100 MHz.
 
-\noindent\\ For the 2.2 nF and 1.5 nF configurations, this second peak becomes the dominant one and approaches the frequency range where the die current is highest. Consequently, the
-impedance around 100 MHz increases, resulting in a higher voltage ripple. This behaviour explains both the non-monotonic variation of the maximum impedance peak frequency and the
-non-monotonic relationship between capacitance and voltage ripple observed in the previous comparison.
+\noindent\\ For the 2.2~nF and 1.5~nF configurations, this second peak becomes the
+dominant one and approaches the frequency range where the die current is
+highest. With 2.2~nF the impedance at 100~MHz stops decreasing
+($0.176~\Omega$, against $0.173~\Omega$ for 3.3~nF), so the benefit of
+a smaller capacitance is exhausted; with 1.5~nF the second peak is close
+enough to 100~MHz to raise the impedance there to $0.336~\Omega$,
+resulting in a higher voltage ripple. This behaviour explains both the
+non-monotonic variation of the frequency of the maximum impedance peak
+and the non-monotonic relationship between capacitance and voltage
+ripple observed in the previous comparison.
 
-\noindent\\ Finally, The effectiveness of the optimisation can be further assessed by examining the configurations with the lowest voltage ripple.
+\noindent\\ Finally, the effectiveness of the optimisation can be further assessed by examining the configurations with the lowest voltage ripple.
 \autoref{tab:ranking} reports the ten best configurations identified by the optimisation procedure, together with the results obtained
 for the uniform configurations, providing a direct comparison between the optimised and conventional approaches.
 
@@ -333,9 +343,9 @@ for the uniform configurations, providing a direct comparison between the optimi
 \rowcolor[HTML]{EFBF04}
 $1^{st}$             & 3.3nF|2.2nF|1.5nF|1.5nF|2.2nF & 57.6 & 56.24 \\
 \rowcolor[HTML]{D6D6D6}
-$2^{nd}$             & 1.5nF|3.3nF|1.5nF|1.5nF|2.2nF & 57.7 & 282.2 \\
+$2^{nd}$             & 1.5nF|3.3nF|1.5nF|1.5nF|2.2nF & 57.7 & 55.34 \\
 \rowcolor[HTML]{CE8946}
-$3^{rd}$             & 1.5nF|2.2nF|3.3nF|1.5nF|2.2nF & 57.7 & 282.2 \\
+$3^{rd}$             & 1.5nF|2.2nF|3.3nF|1.5nF|2.2nF & 57.7 & 55.68 \\
 \rowcolor[HTML]{FFFFFF}
 $4^{th}$             & 1.5nF|1.5nF|3.3nF|1.5nF|2.2nF & 57.8 & - \\
 $5^{th}$             & 1.5nF|1.5nF|1.5nF|3.3nF|2.2nF & 57.9 & - \\
@@ -344,18 +354,27 @@ $7^{th}$             & 3.3nF|1.5nF|3.3nF|1.5nF|1.5nF & 58.0 & - \\
 $8^{th}$             & 1.5nF|1.5nF|3.3nF|2.2nF|2.2nF & 58.0 & - \\
 $9^{th}$             & 3.3nF|1.5nF|1.5nF|2.2nF|2.2nF & 58.2 & - \\
 $10^{th}$            & 1.5nF|2.2nF|3.3nF|1.5nF|1.5nF & 58.2 & - \\
-$79^{th}$            & $5\times$ 2.2~nF & 60.1 & 58.45 \\
-$221^{th}$           & $5\times$ 3.3~nF & 64.0 & 63.39 \\
-$1391^{th}$          & $5\times$ 4.7~nF & 74.0 & 73.00 \\
-$4460^{th}$          & $5\times$ 6.8~nF & 83.4 & 81.95 \\
-$5343^{th}$          & $5\times$ 1.5~nF & 86.7 & 84.00 \\
-$6830^{th}$          & $5\times$ 10~nF & 96.5 & 96.06 \\
+$79^{th}$            & $5\times$ 2.2nF & 60.1 & 58.45 \\
+$221^{st}$           & $5\times$ 3.3nF & 64.0 & 63.39 \\
+$1391^{st}$          & $5\times$ 4.7nF & 74.0 & 73.00 \\
+$4460^{th}$          & $5\times$ 6.8nF & 83.4 & 81.95 \\
+$5343^{rd}$          & $5\times$ 1.5nF & 86.7 & 84.00 \\
+$6830^{th}$          & $5\times$ 10nF & 96.5 & 96.06 \\
 $7776^{th}$          & 1.5nF|10nF|1.5nF|1.5nF|10nF & 145.6 & - \\
-$7777^{th}$          & NO DECAPS & 282.2 & 280.8 \\
+$7777^{th}$          & No decaps connected & 282.2 & 280.8 \\
 \hline
 \end{tabular}
 \end{table}
 
+\noindent The first configurations of the ranking are practically
+equivalent: in the analytical method their ripple differs by less than
+1\%, and in the LTspice simulations the second and third configurations
+even show a ripple about 1~mV lower than the first one. Both differences
+are well within the discrepancy between the analytical method and the
+simulation (about 3\%), so they are not significant. The ranking is
+therefore kept as given by the analytical method, but it should be
+interpreted as identifying a group of equivalent best configurations
+rather than a single optimum.
 
 
 % About the impedance, figures .. show a comparison between the PDN without decaps, optimal decaps and uniform 10nF, and between all

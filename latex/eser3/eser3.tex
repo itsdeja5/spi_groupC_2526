@@ -97,7 +97,7 @@ This is confirmed by the relative magnitude error which peaks at the self-resona
 
 \begin{table}[!h]
 \centering
-\caption{Maximum impedance magnitude  between vendor S-parameters and vendor SPICE models.}
+\caption{Maximum relative error of $|Z|$ between the vendor S-parameter data and the vendor SPICE models, and frequency at which it occurs.}
 \label{tab:cap_val_err}
 \begin{tabular}{lccc}
 \hline
@@ -113,5 +113,8 @@ This is confirmed by the relative magnitude error which peaks at the self-resona
 \end{tabular}
 \end{table}
 
-\noindent Overall, the SPICE models show good agreement with the vendor S-parameter data across the frequency band of interest, 
-confirming that they can be reliably used in the PDN simulations of the following exercises.
+\noindent Overall, the SPICE models agree well with the vendor data across the
+frequency band of interest (error below about 0.3\% away from the
+self-resonance). The largest errors, up to about 7\%, are found near the
+self-resonance, where $|Z|$ is very small. Given this agreement, the models
+can be reliably used in the PDN simulations of the following exercises.
