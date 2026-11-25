@@ -182,8 +182,8 @@ Xc05 c05 0 GCM033R71A222KA03      * 2.2nF
 \subsubsection{Frequency domain analysis of the PDN with optimal decaps configuration}
 The impedance seen from the die with the optimal decaps configuration is shown in \autoref{fig:zdie_best}.\\
 %together with the one of the PDN without decoupling capacitors.
-The maximum of the impedance falls from $3.06~\Omega$ at $95.9~\text{MHz}$ to $0.829~\Omega$ at $74.9~\text{MHz}$ (obtained from LTspice \texttt{.meas})u of LTspice gives
-$-1.63263~\text{dB}$). The resonance peak is therefore reduced by a factor of about $3.7$, and it is moved away from the $100~\text{MHz}$ line of the die current, where the impedance is now only
+The maximum of the impedance falls from $3.06~\Omega$ at $95.9~\text{MHz}$ to $0.829~\Omega$ at $74.9~\text{MHz}$ (obtained from LTspice \texttt{.meas} function).
+The resonance peak is therefore reduced by a factor of about $3.7$, and it is moved away from the $100~\text{MHz}$ line of the die current, where the impedance is now only
 $0.17~\Omega$. The maximum and the frequency obtained from \eqref{eq:zdie} are the same ones of LTspice, which confirms that the matrix method reproduces the direct simulation.
 
 \begin{figure}[!h]
@@ -205,17 +205,17 @@ so they include the \textit{initial transient}, when the voltage is still settli
 the first 0.5~$\mu$s of simulation should be excluded, so only the last 11.5~$\mu$s are really significant for the ripple evaluation.
 In this way, all measurements are performed when the voltage has already settled to its steady-state behaviour.
 
-\noindent\\ As a consequence, a less pessimistic scenario is obtained (see table \autoref{tab:} for full comparison).
+\noindent\\ As a consequence, a less pessimistic scenario is obtained.
 In the case of the PDN with no decoupling capacitors, the ripple is unchanged between the two considered windows, while
 for the best decoupling capacitors configuration, the measured ripple drops to a lower value,
-confirming the behavior presented above. %$56.24~\text{mV}$
+confirming the behavior presented above.
+%$56.24~\text{mV}$
 
 \noindent\\ Moreover, also the analytical method provides a good estimate of the ripple. The value predicted by the method,
-$57.6~\text{mV}$, is slightly lower than the one of the transient, considering the full simulation window. This is expected, as already hinted at previously: the method gives the periodic steady-state, while the
+$57.6~\text{mV}$ with the optimal decaps configuration, is slightly lower than the one of the transient, considering the full simulation window. This is expected, as already hinted at previously: the method gives the periodic steady-state, while the
 transient simulation starts from the DC operating point and includes the start-up of the network, which adds a spike in the first tens of nanoseconds. For the PDN without decoupling capacitors this effect is negligible
 ($282.2~\text{mV}$ predicted, $280.8~\text{mV}$ simulated), because the ripple is much larger; with the optimal capacitors, the effect is more pronounced (57.6~\text{mV} predicted, 59.47~\text{mV} simulated, full-window).
 If the initial transient is neglected, then the ripple measured from the simulation drops down to $56.24~\text{mV}$, which is closer to the predicted value.
-% TODO: if the ripple is measured excluding the start-up (.meas tran vpp_ss PP V(vdie) FROM=0.5u TO=12u), write here the value and say that it is closer to the prediction. => DONE
 
 \noindent\\ The waveform is shown in \autoref{fig:vdie_best}.
 
@@ -256,34 +256,121 @@ reported together with the ones of the direct LTspice transient simulation.
 
 \begin{table}[!h]
 \centering
-\caption{Comparison of the configurations. The ripple of the transient simulation is the \texttt{.meas} of LTspice over the whole simulation.}
+\caption{Comparison of the configurations. The ripple of the transient simulation is the \texttt{.meas} of LTspice, excluding the first 0.5~$\mu$s of the simulation.}
 \label{tab:comp_all}
 \begin{tabular}{lcccc}
 \hline
 \textbf{Configuration} & $\max|Z_{die}|$ [$\Omega$] & $|Z_{die}|_{100~\text{MHz}}$ [$\Omega$] & $V_{pp}$ method [mV] & $V_{pp}$ LTspice [mV] \\
 \hline
-No decaps             & 3.057 (95.94~MHz)  & 2.053  & 282.2 & 280.8 \\
-$5\times$ 10~nF       & 1.86 (120.4~MHz) & 0.443 & 96.5  & --  \\
-$5\times$ 6.8~nF      & 1.59 (122.7~MHz) & 0.368 & 83.4  & --  \\
-$5\times$ 4.7~nF      & 1.27 (125.3~MHz) & 0.298 & 74.0  & --  \\
-$5\times$ 3.3~nF      & 0.894 (131.6~MHz)& 0.173 & 64.0  & --  \\
-$5\times$ 2.2~nF      & 0.837 (75.3~MHz) & 0.176 & 60.1  & --  \\
-$5\times$ 1.5~nF      & 1.23 (81.1~MHz)  & 0.336 & 86.7  & --  \\
-Optimal               & 0.829 (74.9~MHz) & 0.170 & 57.6  & 59.5 \\
+No decaps             & 3.057 (95.94~MHz) & 2.053 & 282.2 & 280.8 \\
+$5\times$ 10~nF       & 1.862 (120.4~MHz) & 0.443 & 96.5  & 96.06 \\
+$5\times$ 6.8~nF      & 1.587 (122.7~MHz) & 0.368 & 83.4  & 81.95 \\
+$5\times$ 4.7~nF      & 1.273 (125.3~MHz) & 0.298 & 74.0  & 73.00 \\
+$5\times$ 3.3~nF      & 0.894 (131.6~MHz) & 0.173 & 64.0  & 63.39 \\
+$5\times$ 2.2~nF      & 0.837 (75.25~MHz) & 0.176 & 60.1  & 58.45 \\
+$5\times$ 1.5~nF      & 1.233 (81.08~MHz) & 0.336 & 86.7  & 84.00 \\
+Optimal               & 0.829 (74.92~MHz) & 0.170 & 57.6  & 56.24 \\
 \hline
 \end{tabular}
 \end{table}
-% TODO: fill the last column with the .meas results of the six LTspice transient simulations with the same capacitor on the five locations.
-% TODO: comment the final table after the simulations: the values of the method are already in the table, they should be confirmed by LTspice.
 
-\noindent With the same capacitor on all the locations, the ripple does not decrease with the capacitance: the five 10~nF capacitors, the largest ones, give the highest ripple among the
-configurations with decoupling capacitors, $96.5~\text{mV}$, while the lowest ripple of this group is obtained with $5\times 2.2~\text{nF}$, $60.1~\text{mV}$. In all cases the capacitors reduce the ripple with respect to the
+\noindent As can be seen from the table above, the values predicted by the analytical method of \autoref{sec:theory} are confirmed
+by direct LTspice simulations, after exluding the initial transient, with a maximum difference of about $3\%$ for the ripple.
+
+\noindent With the same capacitor on all the locations, the ripple does not decrease monotonically with increasing capacitance: the five 10~nF capacitors, the largest ones, give the highest ripple among the
+configurations with decoupling capacitors, $96.06~\text{mV}$, while the lowest ripple of this group is obtained with $5\times 2.2~\text{nF}$, $58.45~\text{mV}$.
+\\ In all cases the capacitors reduce the ripple with respect to the
 PDN alone by a factor of about three or more. The optimal configuration, which mixes capacitors with different self-resonance frequencies, gives the lowest ripple of all, but its advantage over the best uniform
 configuration is small, about $4\%$: the improvement of the optimisation comes mainly from the choice of the right values, and only marginally from their distribution among the five locations.
 
+\noindent\\ While the previous comparison focused on the voltage ripple, the impedance-frequency response provides further insight into the behaviour of the different configurations and helps
+explain the observed differences in performance. \autoref{fig:zdie_comp} compares the PDN without decoupling
+capacitors, the configuration using five 10 nF capacitors and the optimal configuration. A second comparison, shown in \autoref{fig:zdie_6conf}, focuses on all the uniform
+configurations, allowing to examinate more closely the effect of the capacitance value on the impedance response.
 
-%\noindent\\ However, all the measurements described above are taken inside the whole simulation window, so they include the initial transient,
-%when the voltage is still settling from 0~V to its steady-state value. In order to have a more realistic evaluation of the ripple,
-%the first 0.5~$\mu$s of simulation should be excluded, so only the last 11.5~$\mu$s are really significant for the ripple evaluation.
-%In this way, all measurements are performed when the voltage has already settled to its steady-state behaviour.\\ As a consequence, a less pessimistic
-%scenario is obtained (see last column of \autoref{tab:ripple}), but the measured ripple is still critical, equal to  peak-to-peak, which is  of the supply voltage, and the voltage still goes below 0.95~V and above 1.05~V.
+\begin{figure}[!h]
+\centering
+% Replace the placeholder below with the LTspice plot of V(vdie) with the optimal decaps:
+\includegraphics[width=0.9\textwidth]{./eser5/zdie_comp.png}
+%\fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm} Figure placeholder: $V(\texttt{vdie})$ with the optimal decoupling capacitors\vspace{3cm}}}
+\caption{$\text{Z}_{\text{die}}(f)$ for the no-decaps, uniform 10 nF and optimal configurations}
+\label{fig:zdie_comp}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+% Replace the placeholder below with the LTspice plot of V(vdie) with the optimal decaps:
+\includegraphics[width=0.9\textwidth]{./eser5/zdie_6conf.png}
+%\fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm} Figure placeholder: $V(\texttt{vdie})$ with the optimal decoupling capacitors\vspace{3cm}}}
+\caption{$\text{Z}_{\text{die}}(f)$ for the six uniform configurations of decoupling capacitors}
+\label{fig:zdie_6conf}
+\end{figure}
+
+\noindent As anticipated from the ripple results, the optimal configuration exhibits a low impedance around 100 MHz, corresponding to the frequency range where the die current has its
+highest spectral content. Moreover, its maximum impedance is significantly lower than that of the uniform 10 nF configuration, indicating a more effective suppression of the
+impedance peaks.
+
+\noindent Looking more closely at the uniform configurations, two main trends can be observed. As the capacitance decreases, the main impedance peak gradually decreases in magnitude and
+shifts towards higher frequencies. However, a second peak also becomes increasingly pronounced at lower frequencies. This additional resonance is particularly relevant because,
+as the capacitance decreases, it becomes more prominent and progressively shifts towards 100 MHz.
+
+\noindent\\ For the 2.2 nF and 1.5 nF configurations, this second peak becomes the dominant one and approaches the frequency range where the die current is highest. Consequently, the
+impedance around 100 MHz increases, resulting in a higher voltage ripple. This behaviour explains both the non-monotonic variation of the maximum impedance peak frequency and the
+non-monotonic relationship between capacitance and voltage ripple observed in the previous comparison.
+
+\noindent\\ Finally, The effectiveness of the optimisation can be further assessed by examining the configurations with the lowest voltage ripple.
+\autoref{tab:ranking} reports the ten best configurations identified by the optimisation procedure, together with the results obtained
+for the uniform configurations, providing a direct comparison between the optimised and conventional approaches.
+
+\begin{table}[!h]
+\centering
+\caption{Ranking of the best configurations in terms of voltage ripple, together with the results for uniform configurations}
+\label{tab:ranking}
+\begin{tabular}{cccc}
+\hline
+\textbf{Ranking} & \textbf{Configuration} & $V_{pp}$ method [mV] & $V_{pp}$ LTspice [mV] \\
+\hline
+\rowcolor[HTML]{EFBF04}
+$1^{st}$             & 3.3nF|2.2nF|1.5nF|1.5nF|2.2nF & 57.6 & 56.24 \\
+\rowcolor[HTML]{D6D6D6}
+$2^{nd}$             & 1.5nF|3.3nF|1.5nF|1.5nF|2.2nF & 57.7 & 282.2 \\
+\rowcolor[HTML]{CE8946}
+$3^{rd}$             & 1.5nF|2.2nF|3.3nF|1.5nF|2.2nF & 57.7 & 282.2 \\
+\rowcolor[HTML]{FFFFFF}
+$4^{th}$             & 1.5nF|1.5nF|3.3nF|1.5nF|2.2nF & 57.8 & - \\
+$5^{th}$             & 1.5nF|1.5nF|1.5nF|3.3nF|2.2nF & 57.9 & - \\
+$6^{th}$             & 2.2nF|1.5nF|3.3nF|1.5nF|2.2nF & 58.0 & - \\
+$7^{th}$             & 3.3nF|1.5nF|3.3nF|1.5nF|1.5nF & 58.0 & - \\
+$8^{th}$             & 1.5nF|1.5nF|3.3nF|2.2nF|2.2nF & 58.0 & - \\
+$9^{th}$             & 3.3nF|1.5nF|1.5nF|2.2nF|2.2nF & 58.2 & - \\
+$10^{th}$            & 1.5nF|2.2nF|3.3nF|1.5nF|1.5nF & 58.2 & - \\
+$79^{th}$            & $5\times$ 2.2~nF & 60.1 & 58.45 \\
+$221^{th}$           & $5\times$ 3.3~nF & 64.0 & 63.39 \\
+$1391^{th}$          & $5\times$ 4.7~nF & 74.0 & 73.00 \\
+$4460^{th}$          & $5\times$ 6.8~nF & 83.4 & 81.95 \\
+$5343^{th}$          & $5\times$ 1.5~nF & 86.7 & 84.00 \\
+$6830^{th}$          & $5\times$ 10~nF & 96.5 & 96.06 \\
+$7776^{th}$          & 1.5nF|10nF|1.5nF|1.5nF|10nF & 145.6 & - \\
+$7777^{th}$          & NO DECAPS & 282.2 & 280.8 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+% About the impedance, figures .. show a comparison between the PDN without decaps, optimal decaps and uniform 10nF, and between all
+% uniform configurations respectively.
+
+% insert images
+
+% the figure above confirms the already discussed behavior, so that the optimal configuration
+% has a very low impedance at 100~MHz, where the die current is maximum, and a lower peak than the uniform configurations.
+% Focusing on the plot of uniform configurations. it can be noticed that the peak of the impedance gradually
+% decreases and shifts to higher frequencies as the capacitance decrease. However, it can also be noticed 
+% the "birth" of a second peak at lower frequencies, which is the one that is responsible for the higher impedance at 100~MHz and the higher ripple.
+% in fact, going towards lower capacitance value, the peak at lower frequencies becomes more and more pronounced, and it also shifts towards higher frequencies.
+% In particular, for 1.5nf and 2.2nF configurations, this peak becomes the dominant one and it starts to be very close to 100MHz. This is phenomenon explains
+% why the frequency of the peak is not monotonically increasing with the decreasing capacitance, and why the ripple is not monotonically decreasing with the capacitance as well.
+
+% Finally, table ... shows the ranking of the top 10 configurations in terms of ripple, and also for the uniform cases. 
+
