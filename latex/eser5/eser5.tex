@@ -182,14 +182,14 @@ Xc05 c05 0 GCM033R71A222KA03      * 2.2nF
 \subsubsection{Frequency domain analysis of the PDN with optimal decaps configuration}
 The impedance seen from the die with the optimal decaps configuration is shown in \autoref{fig:zdie_best}.\\
 %together with the one of the PDN without decoupling capacitors.
-The maximum of the impedance falls from $3.06~\Omega$ at $95.9~\text{MHz}$ to $0.829~\Omega$ at $74.9~\text{MHz}$ (the \texttt{.meas} of LTspice gives
+The maximum of the impedance falls from $3.06~\Omega$ at $95.9~\text{MHz}$ to $0.829~\Omega$ at $74.9~\text{MHz}$ (obtained from LTspice \texttt{.meas})u of LTspice gives
 $-1.63263~\text{dB}$). The resonance peak is therefore reduced by a factor of about $3.7$, and it is moved away from the $100~\text{MHz}$ line of the die current, where the impedance is now only
 $0.17~\Omega$. The maximum and the frequency obtained from \eqref{eq:zdie} are the same ones of LTspice, which confirms that the matrix method reproduces the direct simulation.
 
 \begin{figure}[!h]
 \centering
 % Replace the placeholder below with the LTspice plot (no decaps and optimal decaps on the same axes):
-\includegraphics[width=0.95\textwidth]{./eser5/zdie_best.png}
+\includegraphics[width=0.9\textwidth]{./eser5/zdie_best.png}
 %\fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm} Figure placeholder: $|Z_{die}|$ without decoupling capacitors and with the optimal configuration\vspace{3cm}}}
 \caption{Impedance magnitude seen from the die interface with optimal decaps configuration}
 \label{fig:zdie_best}
@@ -197,22 +197,37 @@ $0.17~\Omega$. The maximum and the frequency obtained from \eqref{eq:zdie} are t
 
 %\noindent\\ \textbf{Time domain.} The transient simulation uses the same settings of Exercise~4 ($12~\mu\text{s}$, maximum time step of $72~\text{ps}$). The
 \subsubsection{Time domain simulation of the PDN with optimal decaps configuration} The transient simulation uses the same settings of Exercise~4 ($12~\mu\text{s}$, maximum time step of $72~\text{ps}$). The
-peak-to-peak ripple measured by LTspice over the whole simulation is $59.5~\text{mV}$, against $280.8~\text{mV}$ of the PDN without decoupling capacitors: the ripple is reduced by about $79\%$, that is by a factor of $4.7$.
-The waveform is shown in \autoref{fig:vdie_best}.
+peak-to-peak ripple measured by LTspice over the whole simulation is $59.47~\text{mV}$, against
+$280.8~\text{mV}$ of the PDN without decoupling capacitors: the ripple is reduced by about $79\%$, that is by a factor of $4.7$.
+
+\noindent\\ However, it is important to notice that all the measurements described until now are taken inside the whole simulation window,
+so they include the \textit{initial transient}, when the voltage is still settling from 0~V to its steady-state value. In order to have a more realistic evaluation of the ripple,
+the first 0.5~$\mu$s of simulation should be excluded, so only the last 11.5~$\mu$s are really significant for the ripple evaluation.
+In this way, all measurements are performed when the voltage has already settled to its steady-state behaviour.
+
+\noindent\\ As a consequence, a less pessimistic scenario is obtained (see table \autoref{tab:} for full comparison).
+In the case of the PDN with no decoupling capacitors, the ripple is unchanged between the two considered windows, while
+for the best decoupling capacitors configuration, the measured ripple drops to a lower value,
+confirming the behavior presented above. %$56.24~\text{mV}$
+
+\noindent\\ Moreover, also the analytical method provides a good estimate of the ripple. The value predicted by the method,
+$57.6~\text{mV}$, is slightly lower than the one of the transient, considering the full simulation window. This is expected, as already hinted at previously: the method gives the periodic steady-state, while the
+transient simulation starts from the DC operating point and includes the start-up of the network, which adds a spike in the first tens of nanoseconds. For the PDN without decoupling capacitors this effect is negligible
+($282.2~\text{mV}$ predicted, $280.8~\text{mV}$ simulated), because the ripple is much larger; with the optimal capacitors, the effect is more pronounced (57.6~\text{mV} predicted, 59.47~\text{mV} simulated, full-window).
+If the initial transient is neglected, then the ripple measured from the simulation drops down to $56.24~\text{mV}$, which is closer to the predicted value.
+% TODO: if the ripple is measured excluding the start-up (.meas tran vpp_ss PP V(vdie) FROM=0.5u TO=12u), write here the value and say that it is closer to the prediction. => DONE
+
+\noindent\\ The waveform is shown in \autoref{fig:vdie_best}.
 
 \begin{figure}[!h]
 \centering
 % Replace the placeholder below with the LTspice plot of V(vdie) with the optimal decaps:
-\includegraphics[width=\textwidth]{./eser5/vdie_best.png}
+\includegraphics[width=0.9\textwidth]{./eser5/vdie_best.png}
 %\fbox{\parbox{0.9\textwidth}{\centering\vspace{3cm} Figure placeholder: $V(\texttt{vdie})$ with the optimal decoupling capacitors\vspace{3cm}}}
 \caption{Voltage at the die interface with the optimal decoupling capacitors over the whole simulation ($12~\mu\text{s}$).}
 \label{fig:vdie_best}
 \end{figure}
 
-\noindent The value predicted by the method, $57.6~\text{mV}$, is slightly lower than the one of the transient. This is expected: the method gives the periodic steady state, while the
-transient simulation starts from the DC operating point and includes the start-up of the network, which adds a spike in the first tens of nanoseconds. For the PDN without decoupling capacitors this effect is negligible
-($282.2~\text{mV}$ predicted, $280.8~\text{mV}$ simulated), because the ripple is much larger, but it is a few percent of the ripple with the optimal capacitors.
-% TODO: if the ripple is measured excluding the start-up (.meas tran vpp_ss PP V(vdie) FROM=0.5u TO=12u), write here the value and say that it is closer to the prediction.
 
 \begin{table}[!h]
 \centering
@@ -222,11 +237,11 @@ transient simulation starts from the DC operating point and includes the start-u
 \hline
  & \textbf{No decaps} & \textbf{Optimal decaps} \\
 \hline
-$\max |Z_{die}|$ [$\Omega$]                          & 3.06 & 0.8286 \\
-Frequency of the maximum [MHz]                       & 95.9 & 74.918 \\
-$|Z_{die}|$ at 100~MHz [$\Omega$]                    & 2.05 & 0.1702 \\
+$\max |Z_{die}|$ [$\Omega$]                          & 3.057 & 0.8286 \\
+Frequency of the maximum [MHz]                       & 95.94 & 74.918 \\
+$|Z_{die}|$ at 100~MHz [$\Omega$]                    & 2.053 & 0.1702 \\
 $V_{pp}$ from the method [mV]                        & 282.2 & 57.6 \\
-$V_{pp}$ from the transient (LTspice) [mV]           & 280.8 & 59.5 \\
+$V_{pp}$ from the transient (LTspice) [mV]           & 280.8 & 59.47|56.24 \\
 \hline
 \end{tabular}
 \end{table}
@@ -247,7 +262,7 @@ reported together with the ones of the direct LTspice transient simulation.
 \hline
 \textbf{Configuration} & $\max|Z_{die}|$ [$\Omega$] & $|Z_{die}|_{100~\text{MHz}}$ [$\Omega$] & $V_{pp}$ method [mV] & $V_{pp}$ LTspice [mV] \\
 \hline
-No decaps             & 3.06 (95.9~MHz)  & 2.05  & 282.2 & 280.8 \\
+No decaps             & 3.057 (95.94~MHz)  & 2.053  & 282.2 & 280.8 \\
 $5\times$ 10~nF       & 1.86 (120.4~MHz) & 0.443 & 96.5  & --  \\
 $5\times$ 6.8~nF      & 1.59 (122.7~MHz) & 0.368 & 83.4  & --  \\
 $5\times$ 4.7~nF      & 1.27 (125.3~MHz) & 0.298 & 74.0  & --  \\
